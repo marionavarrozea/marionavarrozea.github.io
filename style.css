@@ -1,51 +1,39 @@
-/* 1. Reset & Smooth Scroll */
+/* =========================================
+   Universal Fixes & Smooth Scroll
+   ========================================= */
+* {
+    box-sizing: border-box; /* The most important fix for side-leaks */
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
 }
 
-/* 2. Aerospace Theme Colors (Restored to your original preferred values) */
-:root {
-    --bg-color-top: #e8eef5; 
-    --bg-color-bottom: #f4f7fb; 
-    --card-bg: #ffffff;
-    --text-primary: #1a202c; 
-    --text-secondary: #4a5568; 
-    --accent-dark: #003b73; 
-    --accent-light: #0066cc; 
-    --border-color: #e2e8f0;
-}
-
-/* 3. Animations (REMOVED side-movement, kept only vertical) */
-.reveal {
-    opacity: 0;
-    transform: translateY(20px); 
-    transition: all 0.6s ease-out;
-}
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 body {
-    background: linear-gradient(135deg, var(--bg-color-top) 0%, var(--bg-color-bottom) 100%);
-    color: var(--text-primary);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Added to stop the "weird" side-scroll */
+    width: 100%;
+    overflow-x: hidden; /* Stops horizontal "weirdness" on mobile */
+    background: linear-gradient(135deg, #e8eef5 0%, #f4f7fb 100%);
+    color: #1a202c;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
 }
 
-/* 4. Navigation (Fixed for Mobile Overlay) */
+/* =========================================
+   Navigation (Laptop View)
+   ========================================= */
 nav {
     position: fixed;
     width: 100%;
+    top: 0;
+    left: 0;
     z-index: 1000;
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border-color);
-    padding: 35px 0;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 30px 0;
     transition: all 0.4s ease;
 }
 
@@ -53,57 +41,143 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap; /* Prevents giant photo on laptop */
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 30px;
 }
 
-/* 5. Job Blocks (Added Hover Color, Removed side-shift) */
-.timeline .job {
-    background-color: var(--card-bg);
-    padding: 30px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    border-left: 6px solid var(--accent-light);
+.brand {
     display: flex;
-    gap: 25px;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition for hover */
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
 }
 
+.brand-photo {
+    width: 90px;
+    height: 90px;
+    min-width: 90px; /* Locked size */
+    min-height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+
+.brand-name {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #1a202c;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4a5568;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #0066cc;
+}
+
+/* Scrolled Navbar */
+nav.scrolled {
+    padding: 10px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+nav.scrolled .brand-photo {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+}
+
+/* =========================================
+   Hero & Content
+   ========================================= */
+header#hero {
+    background: linear-gradient(135deg, #003b73 0%, #002244 100%);
+    color: #ffffff;
+    padding: 200px 0 100px 0;
+    border-bottom: 5px solid #0066cc;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+header#hero p, section p, li {
+    text-align: justify; /* Restored */
+    hyphens: auto;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Job Hover Effect */
+.timeline .job {
+    background: white;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-left: 6px solid #0066cc;
+    transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    gap: 25px;
+}
 .timeline .job:hover {
-    background-color: #f0f7ff; /* Color change you asked for */
+    background-color: #f0f7ff;
     transform: translateY(-4px); /* Vertical only */
 }
 
-/* 6. Restore Justified Text */
-p, li, header#hero p {
-    text-align: justify;
-}
-
-/* 7. Scroll to Top Button */
+/* Scroll Top Button */
 #scrollTopBtn {
     display: none;
     position: fixed;
     bottom: 30px;
     right: 30px;
-    z-index: 99;
-    background-color: var(--accent-light);
+    z-index: 1001;
+    background-color: #0066cc;
     color: white;
     border: none;
-    padding: 15px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     cursor: pointer;
+    font-size: 20px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* =========================================
-   Mobile Fixes (The "Absolute" Menu Fix)
+   Mobile Fixes
    ========================================= */
+.menu-toggle { display: none; }
+.menu-button { display: none; }
+
 @media (max-width: 768px) {
+    .menu-button { display: block; cursor: pointer; font-size: 1.5rem; }
+    
     .nav-links {
         display: flex;
         flex-direction: column;
-        position: absolute; /* Fix: Doesn't push photo */
+        position: absolute; /* Floating menu fix */
         top: 100%;
         left: 0;
         width: 100%;
@@ -113,6 +187,8 @@ p, li, header#hero p {
         overflow: hidden;
         transition: all 0.4s ease;
         padding: 0;
+        text-align: center;
+        border-bottom: 1px solid #e2e8f0;
     }
 
     .menu-toggle:checked ~ .nav-links {
@@ -121,11 +197,15 @@ p, li, header#hero p {
         padding: 20px 0;
     }
 
-    /* Fix: Stop buttons from bleeding off screen */
+    .brand-photo {
+        width: 50px !important;
+        height: 50px !important;
+        min-width: 50px;
+    }
+
     header#hero .btn {
         display: block;
         width: 100%;
-        margin: 10px 0; /* Changed from margin-right to margin-top/bottom */
-        box-sizing: border-box; 
+        margin: 10px 0;
     }
 }
