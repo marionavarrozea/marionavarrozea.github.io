@@ -326,26 +326,34 @@ a.btn:hover {
     }
 
     .nav-links {
-        display: flex;            /* Always flex, but we control visibility with height */
+        display: flex;
         flex-direction: column;
-        width: 100%;
-        text-align: center;
         gap: 15px;
-        
-        /* THE ANIMATION MAGIC */
-        max-height: 0;            /* Start at zero height */
-        overflow: hidden;         /* Hide the text while closed */
-        opacity: 0;               /* Start invisible */
-        transition: max-height 0.4s ease-out, opacity 0.3s ease;
-        padding-top: 0;           /* No padding when closed */
+        text-align: center;
+
+        /* THE FIX: Absolute positioning */
+        position: absolute;    /* Floats the menu */
+        top: 100%;             /* Starts exactly at the bottom of the header */
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98); /* Solid background to cover hero */
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        z-index: 999;
+
+        /* Animation settings */
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+        padding: 0; /* No padding when closed */
     }
-    
+
     /* When the checkbox is clicked, slide down! */
     .menu-toggle:checked ~ .nav-links {
-        max-height: 500px;        /* Large enough to fit all links */
-        opacity: 1;               /* Become visible */
-        padding-top: 20px;        /* Add the space back */
-        padding-bottom: 20px;
+        max-height: 400px;
+        opacity: 1;
+        padding: 20px 0; /* Padding only when open */
     }
 
     /* Adjust the icon color when menu is open (Optional) */
