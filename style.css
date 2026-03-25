@@ -25,25 +25,18 @@ body {
 /* =========================================
    Navigation (Laptop View)
    ========================================= */
-nav {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid #e2e8f0;
-    padding: 40px 0; /* Accommodates larger photo */
-    transition: all 0.4s ease;
-}
-
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap; 
-    max-width: 1000px;
+    max-width: 1200px; /* Increased from 1000px for a wider layout */
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.container {
+    max-width: 1200px; /* Increased from 1000px to match the nav */
     margin: 0 auto;
     padding: 0 30px;
 }
@@ -71,7 +64,7 @@ nav {
 }
 
 .brand-name {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin: 0;
     color: #1a202c;
 }
@@ -123,6 +116,7 @@ header#hero h2 {
     border-bottom: none;
     margin-bottom: 15px;
     display: block;
+    font-size: 1.8rem; /* Slightly larger than section titles, but smaller than laptop */
 }
 
 .container {
@@ -174,8 +168,8 @@ section {
 
 h2 {
     color: #003b73;
-    font-size: 2rem;
-    margin-bottom: 30px;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
     border-bottom: 3px solid #0066cc;
     display: inline-block;
     padding-bottom: 5px;
