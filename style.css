@@ -25,6 +25,19 @@ body {
 /* =========================================
    Navigation (Laptop View)
    ========================================= */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #e2e8f0;
+    padding: 40px 0; /* This gives it the proper height */
+    transition: all 0.4s ease;
+}
+
 .nav-container {
     display: flex;
     justify-content: space-between;
