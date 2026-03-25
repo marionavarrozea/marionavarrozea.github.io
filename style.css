@@ -1,7 +1,7 @@
 /* Enable smooth scrolling */
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px; /* Accounts for fixed header */
+    scroll-padding-top: 100px; /* Accounts for the new smaller header */
 }
 
 /* Aerospace Executive Theme Colors */
@@ -17,11 +17,11 @@ html {
 }
 
 /* =========================================
-   Scroll Reveal Animations
+    Scroll Reveal Animations
    ========================================= */
 .reveal {
     opacity: 0;
-    transform: translateY(20px); /* Clean vertical entrance */
+    transform: translateY(20px); /* Vertical entrance only */
     transition: all 0.6s ease-out;
 }
 
@@ -30,9 +30,6 @@ html {
     transform: translateY(0);
 }
 
-/* =========================================
-   General Layout
-   ========================================= */
 body {
     background: linear-gradient(135deg, var(--bg-color-top) 0%, var(--bg-color-bottom) 100%);
     color: var(--text-primary);
@@ -44,7 +41,7 @@ body {
 }
 
 .container {
-    max-width: 1000px; /* Aligned with your content preference */
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 30px;
 }
@@ -60,7 +57,7 @@ nav {
     box-sizing: border-box; 
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); 
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     z-index: 1000;
@@ -72,6 +69,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .nav-top-row {
@@ -82,7 +80,7 @@ nav {
 
 .brand {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; 
     align-items: center;
     gap: 15px;
     transition: all 0.4s ease;
@@ -100,6 +98,7 @@ nav {
     font-size: 1.5rem;
     margin: 0;
     color: var(--text-primary);
+    transition: all 0.4s ease;
 }
 
 .nav-links {
@@ -123,16 +122,32 @@ nav {
     color: var(--accent-light);
 }
 
+.menu-toggle { display: none; }
+
+.menu-button {
+    display: none; 
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--accent-dark);
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: #f8fafc;
+    transition: background-color 0.3s;
+    line-height: 1;
+}
+
+.menu-button:hover { background-color: #e2e8f0; }
+
 /* Scrolled State */
 nav.scrolled {
-    padding: 15px 0;
-    background-color: #ffffff;
+    padding: 10px 0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 nav.scrolled .brand-photo {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
 }
 
 nav.scrolled .brand-name {
@@ -140,7 +155,7 @@ nav.scrolled .brand-name {
 }
 
 /* =========================================
-   Hero Section
+   Hero & Sections
    ========================================= */
 header#hero {
     background: linear-gradient(135deg, var(--accent-dark) 0%, #002244 100%);
@@ -161,16 +176,12 @@ header#hero {
     box-sizing: border-box;
 }
 
-.hero-text {
-    flex-grow: 1;
-}
-
 header#hero h2 {
     font-size: 1.6rem;
     color: #cbd5e1;
     font-weight: 400;
-    border-bottom: none;
     margin-bottom: 1rem;
+    margin-top: 0;
 }
 
 header#hero p {
@@ -179,12 +190,10 @@ header#hero p {
     margin: 0 0 35px 0;
     font-size: 1.15rem;
     line-height: 1.7;
-    text-align: left; /* Hero text usually looks better left-aligned than justified */
+    text-align: justify; /* Restored */
+    hyphens: auto;
 }
 
-/* =========================================
-   Content Sections
-   ========================================= */
 section {
     padding-top: 50px; 
     margin-bottom: 40px;
@@ -199,11 +208,21 @@ h2 {
     padding-bottom: 5px;
 }
 
-p, li {
-    color: var(--text-secondary);
+h3 {
+    margin-top: 0;
+    margin-bottom: 0.2rem;
+    color: var(--accent-dark);
 }
 
-/* Job/Education Cards */
+p, li {
+    color: var(--text-secondary);
+    text-align: justify; /* Restored */
+    hyphens: auto;
+}
+
+/* =========================================
+   Job Blocks & Interactive Elements
+   ========================================= */
 .timeline .job {
     background-color: var(--card-bg);
     padding: 30px;
@@ -211,17 +230,20 @@ p, li {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
     margin-bottom: 25px;
     border-left: 6px solid var(--accent-light);
+    border-right: 1px solid transparent;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     display: flex; 
     align-items: flex-start;
     gap: 25px;
-    /* Clean transition for hover */
-    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .timeline .job:hover {
-    background-color: #f0f7ff; /* Reaction color on hover */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px); /* Very subtle lift without the side-movement */
+    background-color: #f0f7ff; /* Hover color change */
+    border-color: var(--accent-light);
+    transform: translateY(-4px); /* Vertical lift only */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
 }
 
 .job-logo {
@@ -235,7 +257,6 @@ p, li {
     border: 1px solid var(--border-color);
 }
 
-/* Buttons */
 a.btn {
     display: inline-block;
     padding: 12px 28px;
@@ -251,68 +272,70 @@ a.btn {
 
 a.btn:hover {
     background-color: #f1f5f9;
-    transform: translateY(-2px);
+    transform: scale(1.05);
+}
+
+/* Scroll to Top Button */
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    background-color: var(--accent-light);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+    background-color: var(--accent-dark);
+    transform: scale(1.1);
 }
 
 /* =========================================
    Mobile Responsiveness
    ========================================= */
-.menu-toggle { display: none; }
-.menu-button { display: none; }
-
 @media (max-width: 768px) {
-    .nav-top-row {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .menu-button {
-        display: block;
-        cursor: pointer;
-        font-size: 1.5rem;
-        color: var(--accent-dark);
-        padding: 6px 12px;
-        border: 1px solid var(--border-color);
-        border-radius: 5px;
-        background-color: #f8fafc;
-    }
+    .nav-top-row { width: 100%; }
+    .menu-button { display: block; }
 
     .nav-links {
         display: flex;
         flex-direction: column;
-        gap: 0; /* Managed by item padding */
-        text-align: center;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
         background-color: rgba(255, 255, 255, 0.98);
         border-bottom: 1px solid var(--border-color);
-        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
-        z-index: 999;
         max-height: 0;
         opacity: 0;
         overflow: hidden;
         transition: max-height 0.4s ease, opacity 0.3s ease;
+        padding: 0;
     }
 
     .menu-toggle:checked ~ .nav-links {
-        max-height: 500px;
+        max-height: 400px;
         opacity: 1;
         padding: 20px 0;
     }
 
-    .nav-links li {
-        padding: 10px 0;
-    }
-
-    /* Fix hero button stack */
-    header#hero .btn {
-        display: block;
-        width: 100%;
-        margin: 10px 0;
+    .hero-inner {
+        flex-direction: column;
         text-align: center;
+    }
+    
+    header#hero p {
+        text-align: justify; /* Ensure mobile stays justified */
+        margin: 0 auto 25px auto;
     }
 
     .timeline .job {
@@ -320,5 +343,9 @@ a.btn:hover {
         gap: 15px;
     }
 
-    h2 { font-size: 1.5rem; }
+    header#hero .btn {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+    }
 }
