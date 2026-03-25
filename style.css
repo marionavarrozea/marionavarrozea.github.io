@@ -157,7 +157,7 @@ nav.scrolled .brand-name {
 header#hero {
     background: linear-gradient(135deg, var(--accent-dark) 0%, #002244 100%);
     color: #ffffff;
-    padding-top: 160px; /* Reduced from 320px because header is horizontal now */
+    padding-top: 220px; /* Reduced from 320px because header is horizontal now */
     padding-bottom: 80px;
     border-bottom: 5px solid var(--accent-light);
     box-shadow: 0 10px 20px rgba(0, 59, 115, 0.15);
