@@ -230,9 +230,19 @@ h3 { color: #003b73; margin-top: 0; margin-bottom: 5px; }
     gap: 25px;
     border-radius: 0 5px 5px 0;
 }
+/* Job Hover Effect - Darker & More Professional */
 .timeline .job:hover {
-    background-color: #f0f7ff;
+    background-color: #002d59; /* Matching the deep space blue of your contact cards */
     transform: translateY(-4px); 
+    border-left: 6px solid #00a3ff; /* Optional: A brighter blue "glow" for the edge */
+    color: #ffffff; /* Turns the text white so it's readable on the dark background */
+}
+
+/* IMPORTANT: Ensure the job title and company name also turn white */
+.timeline .job:hover h3, 
+.timeline .job:hover p, 
+.timeline .job:hover li {
+    color: #ffffff;
 }
 
 /* =========================================
