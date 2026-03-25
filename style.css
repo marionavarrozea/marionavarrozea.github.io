@@ -1,7 +1,7 @@
 /* Enable smooth scrolling */
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 140px; /* Accounts for the height of the shrunken menu */
+    scroll-padding-top: 100px; /* Accounts for the new smaller header */
 }
 
 /* Aerospace Executive Theme Colors */
@@ -33,96 +33,97 @@ body {
 }
 
 /* =========================================
-   Navigation & Shrinking Header Setup
+   Navigation & Horizontal Layout Setup
    ========================================= */
 nav {
     position: fixed;
-    width: 100%;            /* ADDED */
-    left: 0;                /* ADDED */
+    width: 100%;
+    left: 0;
     top: 0;
-    box-sizing: border-box; /* ADDED */
-    background-color: #ffffff;
+    box-sizing: border-box; 
+    /* Slightly transparent white background with blur! */
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* For Safari */
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     z-index: 1000;
-    padding: 30px 0;
-    transition: all 0.4s ease; /* Smooth shrinking effect */
+    padding: 20px 0;
+    transition: all 0.4s ease; 
 }
 
-/* Container for Brand and Button */
+/* The main flexbox container keeping brand on left and links on right */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows menu to drop down on mobile */
+}
+
+/* Brand area */
 .nav-top-row {
     display: flex;
-    flex-direction: column; /* Centered layout initially */
+    justify-content: space-between;
     align-items: center;
-    gap: 15px;
-    transition: all 0.4s ease;
 }
 
-/* Brand (Photo & Name) */
 .brand {
     display: flex;
-    flex-direction: column; /* Photo above name initially */
+    flex-direction: row; /* Forces horizontal */
     align-items: center;
     gap: 15px;
     transition: all 0.4s ease;
 }
 
 .brand-photo {
-    width: 150px; /* Big initial size */
-    height: 150px;
+    width: 65px; /* Perfect desktop horizontal size */
+    height: 65px;
     border-radius: 50%;
     object-fit: cover;
     transition: all 0.4s ease;
 }
 
 .brand-name {
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     margin: 0;
     color: var(--text-primary);
     transition: all 0.4s ease;
-    text-align: center;
 }
 
-/* =========================================
-   THE SCROLLED STATE (Triggered by JS)
-   ========================================= */
-nav.scrolled {
-    padding: 10px 0; /* Shrinks the navbar height */
+/* The Links array (Horizontal on Desktop) */
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
 }
 
-nav.scrolled .nav-top-row {
-    flex-direction: row; /* Moves brand left and menu right */
-    justify-content: space-between;
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 600;
+    transition: color 0.3s ease;
+    font-size: 1rem;
 }
 
-nav.scrolled .brand {
-    flex-direction: row; /* Puts photo and name side-by-side */
-    gap: 15px;
+.nav-links a:hover {
+    color: var(--accent-light);
 }
 
-nav.scrolled .brand-photo {
-    width: 50px; /* Shrinks the photo */
-    height: 50px;
-}
-
-nav.scrolled .brand-name {
-    font-size: 1.3rem; /* Shrinks the name */
-}
-
-/* =========================================
-   Menu Button & Deployable Links
-   ========================================= */
+/* Hidden elements on desktop */
 .menu-toggle {
     display: none;
 }
 
 .menu-button {
+    display: none; /* Hidden on desktop, shown on mobile */
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--accent-dark);
-    display: block;
-    padding: 8px 20px;
+    padding: 8px 15px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
     background-color: #f8fafc;
@@ -133,38 +134,30 @@ nav.scrolled .brand-name {
     background-color: #e2e8f0;
 }
 
-.nav-links {
-    list-style: none;
-    display: none; /* Hidden until clicked */
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    padding-top: 20px;
-    margin: 0;
-    gap: 15px;
+/* =========================================
+   THE SCROLLED STATE (Triggered by JS)
+   ========================================= */
+nav.scrolled {
+    padding: 10px 0; /* Shrinks the navbar height */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Darkens shadow slightly */
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-secondary);
-    font-weight: 600;
-    transition: color 0.3s ease;
-    font-size: 1.1rem;
+nav.scrolled .brand-photo {
+    width: 45px; /* Shrinks the photo */
+    height: 45px;
 }
 
-.nav-links a:hover {
-    color: var(--accent-light);
+nav.scrolled .brand-name {
+    font-size: 1.2rem; /* Shrinks the name */
 }
 
-/* Displays the links when button is clicked */
-.menu-toggle:checked ~ .nav-links {
-    display: flex;
-}
-/* Hero Section with Photo */
+/* =========================================
+   Hero & Sections
+   ========================================= */
 header#hero {
     background: linear-gradient(135deg, var(--accent-dark) 0%, #002244 100%);
     color: #ffffff;
-    padding-top: 320px;    /* Pushes content down so the big menu doesn't cover it */
+    padding-top: 160px; /* Reduced from 320px because header is horizontal now */
     padding-bottom: 80px;
     border-bottom: 5px solid var(--accent-light);
     box-shadow: 0 10px 20px rgba(0, 59, 115, 0.15);
@@ -178,23 +171,8 @@ header#hero {
     text-align: left;
 }
 
-.profile-photo {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid var(--accent-light);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-}
-
 .hero-text {
     flex-grow: 1;
-}
-
-header#hero h1 {
-    font-size: 3.2rem;
-    margin-bottom: 0.2rem;
-    color: #ffffff;
 }
 
 header#hero h2 {
@@ -203,18 +181,19 @@ header#hero h2 {
     font-weight: 400;
     border-bottom: none;
     margin-bottom: 1rem;
+    margin-top: 0;
 }
 
 header#hero p {
     color: #e2e8f0;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 0 25px 0;
     font-size: 1.1rem;
 }
 
 /* Sections */
 section {
-    padding-top: 80px; 
+    padding-top: 50px; 
     margin-bottom: 40px;
 }
 
@@ -238,7 +217,7 @@ p, li {
     text-align: justify;
 }
 
-/* Accordion/Deployable Card Layout */
+/* Accordion/Card Layout */
 .timeline .job {
     background-color: var(--card-bg);
     padding: 30px;
@@ -247,26 +226,14 @@ p, li {
     margin-bottom: 25px;
     border-left: 6px solid var(--accent-light);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Aligns logo and content */
+    align-items: flex-start;
+    gap: 25px;
 }
 
 .timeline .job:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
-}
-
-/* Summary Layout (The Clickable Header) */
-.job-summary {
-    display: flex;
-    align-items: flex-start;
-    gap: 25px;
-    cursor: pointer;
-    list-style: none; /* Hides the default HTML arrow */
-    outline: none;
-}
-
-/* Hides the default arrow in Safari/Chrome */
-.job-summary::-webkit-details-marker {
-    display: none;
 }
 
 .job-logo {
@@ -280,48 +247,17 @@ p, li {
     border: 1px solid var(--border-color);
 }
 
-.job-header {
-    flex-grow: 1;
-}
-
-/* Little text hint to show it's clickable */
-.click-hint {
-    font-size: 0.8rem;
-    color: var(--accent-light);
-    font-style: italic;
-    opacity: 0.7;
-    display: block;
-    margin-top: 5px;
-}
-
-/* Hides the 'click hint' when the section is open */
-details[open] .click-hint {
-    display: none;
-}
-
-/* Content Layout (The Dropdown Bullet Points) */
 .job-content {
-    padding-left: 100px; /* 75px logo + 25px gap */
-    padding-top: 10px;
+    flex-grow: 1;
 }
 
 .timeline ul {
     padding-left: 20px;
-    margin-top: 0;
+    margin-top: 10px;
 }
 
 .timeline li {
     margin-bottom: 8px;
-}
-
-/* Smooth Dropdown Animation */
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-details[open] .job-content {
-    animation: slideDown 0.4s ease-out;
 }
 
 /* Buttons and Links */
@@ -357,8 +293,35 @@ a.btn:hover {
     color: var(--accent-dark);
 }
 
-/* Media Query for Mobile Responsiveness */
+/* =========================================
+   Mobile Responsiveness
+   ========================================= */
 @media (max-width: 768px) {
+    
+    /* Modify Nav for mobile dropdown */
+    .nav-top-row {
+        width: 100%; /* Spans the whole width to push button to right */
+    }
+    
+    .menu-button {
+        display: block; /* Show the button on small screens */
+    }
+
+    .nav-links {
+        display: none; /* Hide the links initially on mobile */
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding-top: 20px;
+        gap: 15px;
+    }
+    
+    /* The Magic CSS to open the menu on mobile */
+    .menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+
+    /* Hero adjustments */
     .hero-inner {
         flex-direction: column;
         text-align: center;
@@ -368,16 +331,10 @@ a.btn:hover {
         margin: 0 auto 25px auto;
     }
 
-    /* Stack logo and title on mobile */
-    .job-summary {
+    /* Stack job logos and text on mobile */
+    .timeline .job {
         flex-direction: column; 
         align-items: flex-start; 
         gap: 15px; 
-    }
-
-    /* Push text back to the left edge on mobile */
-    .job-content {
-        padding-left: 0; 
-        margin-top: 15px;
     }
 }
