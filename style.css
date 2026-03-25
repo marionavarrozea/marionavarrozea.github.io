@@ -22,9 +22,18 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 0;
-    padding-top: 340px; /* THIS IS THE MAGIC FIX */
+    
+    /* INITIAL STATE: Large space for the big header */
+    padding-top: 320px; 
+    /* This makes the page slide smoothly at the same 0.4s speed as the header */
+    transition: padding-top 0.4s ease; 
+    
     min-height: 100vh;
+}
+
+/* SCROLLED STATE: Pulls the blue section up to close the gap */
+body.scrolled-body {
+    padding-top: 100px; /* Small space for the shrunken header */
 }
 
 .container {
