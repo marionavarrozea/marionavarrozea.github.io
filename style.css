@@ -48,6 +48,12 @@ nav {
     padding: 0 30px;
 }
 
+/* Fixes the alignment of the laptop navigation bar */
+.nav-top-row {
+    display: flex;
+    align-items: center;
+}
+
 .brand {
     display: flex;
     align-items: center;
@@ -109,6 +115,14 @@ header#hero {
     color: #ffffff;
     padding: 240px 0 100px 0; /* Pushed down for larger nav */
     border-bottom: 5px solid #0066cc;
+}
+
+/* Overrides the global h2 style so the hero title stays white and clean */
+header#hero h2 {
+    color: #ffffff;
+    border-bottom: none;
+    margin-bottom: 15px;
+    display: block;
 }
 
 .container {
