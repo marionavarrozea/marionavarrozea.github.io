@@ -50,7 +50,7 @@ nav {
 }
 
 .container {
-    max-width: 1400px; /* Increased to match the nav */
+    max-width: 1200px; /* Increased to match the nav */
     margin: 0 auto;
     padding: 0 30px;
 }
@@ -138,12 +138,6 @@ header#hero h2 {
     margin-bottom: 15px;
     display: block;
     font-size: 1.8rem; /* Slightly larger than section titles, but smaller than laptop */
-}
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 30px;
 }
 
 header#hero p, section p, li {
