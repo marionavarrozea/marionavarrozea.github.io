@@ -31,7 +31,7 @@ body {
     padding: 0 30px;
 }
 
-/* Navigation Menu */
+/* Navigation Menu Setup */
 nav {
     position: sticky;
     top: 0;
@@ -44,20 +44,42 @@ nav {
 
 .nav-inner {
     display: flex;
-    justify-content: center; 
+    flex-direction: column; /* Allows the menu to drop down below the button */
     align-items: center;
 }
 
-nav ul {
+/* Hide the actual checkbox */
+.menu-toggle {
+    display: none;
+}
+
+/* The Menu Button Styling */
+.menu-button {
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent-dark);
+    display: none; /* Hidden on large desktop screens by default */
+    padding: 5px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: #f8fafc;
+}
+
+.menu-button:hover {
+    background-color: #e2e8f0;
+}
+
+/* The Links List */
+.nav-links {
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
+    display: flex; /* Horizontal on desktop */
     gap: 25px;
     margin: 0;
     padding: 0;
 }
 
-nav a {
+.nav-links a {
     text-decoration: none;
     color: var(--text-secondary);
     font-weight: 600;
@@ -65,8 +87,29 @@ nav a {
     font-size: 0.95rem;
 }
 
-nav a:hover {
+.nav-links a:hover {
     color: var(--accent-light);
+}
+
+/* Mobile Dropdown Logic */
+@media (max-width: 768px) {
+    .menu-button {
+        display: block; /* Show the Menu button on smaller screens */
+    }
+
+    .nav-links {
+        display: none; /* Hide the links initially */
+        flex-direction: column; /* Stack them vertically */
+        width: 100%;
+        text-align: center;
+        padding-top: 15px;
+        gap: 15px;
+    }
+
+    /* THE MAGIC: When the checkbox is checked, display the links! */
+    .menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
 }
 
 /* Hero Section with Photo */
