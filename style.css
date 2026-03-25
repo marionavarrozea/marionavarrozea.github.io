@@ -276,14 +276,22 @@ h3 { color: #003b73; margin-top: 0; margin-bottom: 5px; }
 
 .contact-card:hover {
     transform: translateY(-5px);
-    background: white;
-    box-shadow: 0 12px 25px rgba(0, 102, 204, 0.2);
-    color: #0066cc;
+    
+    /* CHANGE THIS: A darker, more professional blue */
+    background: #002d59; 
+    
+    /* CHANGE THIS: Make the text white so it's readable on the dark blue */
+    color: #ffffff; 
+    
+    box-shadow: 0 12px 25px rgba(0, 102, 204, 0.3);
+    border: 1px solid #003b73;
 }
 
+/* IMPORTANT: Also change the icon color on hover so it doesn't disappear */
 .contact-card:hover .contact-icon {
-    color: #0066cc;
+    color: #ffffff;
 }
+
 
 /* Site Footer */
 .site-footer {
