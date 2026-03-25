@@ -43,7 +43,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap; 
-    max-width: 1600px; /* Increased for an ultra-wide look */
+    max-width: 1700px; /* Increased for an ultra-wide look */
     margin: 0 auto;
     padding: 0 30px;
 }
