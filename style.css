@@ -342,4 +342,12 @@ a.btn:hover {
         font-size: 1.5rem; /* Reduced from 2rem */
         margin-bottom: 1.2rem;
     }
+    /* Make hero buttons full-width and stacked on mobile */
+    header#hero .btn {
+        display: block;   /* Forces them to be their own line */
+        width: 100%;      /* Stretches them to the edges */
+        margin: 10px 0;   /* Adds space between the top and bottom button */
+        box-sizing: border-box; /* Ensures padding doesn't break the width */
+        text-align: center;
+    }
 }
