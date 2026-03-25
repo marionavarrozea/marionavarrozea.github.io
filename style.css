@@ -5,13 +5,13 @@ html {
 
 /* Aerospace Executive Theme Colors */
 :root {
-    --bg-color-top: #e8eef5; /* Cool gray-blue top */
-    --bg-color-bottom: #f4f7fb; /* Lighter base */
+    --bg-color-top: #e8eef5; 
+    --bg-color-bottom: #f4f7fb; 
     --card-bg: #ffffff;
-    --text-primary: #1a202c; /* Deep slate */
-    --text-secondary: #4a5568; /* Softer gray */
-    --accent-dark: #003b73; /* Deep Space Blue */
-    --accent-light: #0066cc; /* Bright Aerospace Blue */
+    --text-primary: #1a202c; 
+    --text-secondary: #4a5568; 
+    --accent-dark: #003b73; 
+    --accent-light: #0066cc; 
     --border-color: #e2e8f0;
 }
 
@@ -25,7 +25,6 @@ body {
     min-height: 100vh;
 }
 
-/* Container limits width and keeps content centered */
 .container {
     max-width: 900px;
     margin: 0 auto;
@@ -45,22 +44,15 @@ nav {
 
 .nav-inner {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centered since the logo is gone */
     align-items: center;
-}
-
-nav .logo {
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: var(--accent-dark);
-    letter-spacing: 1px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 25px;
     margin: 0;
     padding: 0;
 }
@@ -77,36 +69,66 @@ nav a:hover {
     color: var(--accent-light);
 }
 
-/* Hero Section - Deep Blue Background */
+/* Hero Section with Photo */
 header#hero {
     background: linear-gradient(135deg, var(--accent-dark) 0%, #002244 100%);
     color: #ffffff;
-    padding: 100px 0 80px 0;
-    text-align: center;
+    padding: 80px 0;
     border-bottom: 5px solid var(--accent-light);
     box-shadow: 0 10px 20px rgba(0, 59, 115, 0.15);
     margin-bottom: 60px;
 }
 
+.hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent-light);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.hero-text {
+    flex-grow: 1;
+}
+
 header#hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 3.2rem;
+    margin-bottom: 0.2rem;
     color: #ffffff;
 }
 
 header#hero h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: #cbd5e1;
     font-weight: 400;
     border-bottom: none;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 header#hero p {
     color: #e2e8f0;
-    max-width: 700px;
-    margin: 0 auto 30px auto;
+    max-width: 600px;
+    margin: 0 0 25px 0;
     font-size: 1.1rem;
+}
+
+/* Media Query for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+    header#hero p {
+        margin: 0 auto 25px auto;
+    }
 }
 
 /* Sections */
@@ -144,7 +166,7 @@ p, li {
     display: flex;
     align-items: flex-start;
     gap: 25px;
-    border-left: 6px solid var(--accent-light); /* Sleek blue line on the left */
+    border-left: 6px solid var(--accent-light);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -158,7 +180,7 @@ p, li {
     height: 75px;
     object-fit: contain;
     flex-shrink: 0;
-    background-color: #ffffff; /* Ensures logos with transparent backgrounds look good */
+    background-color: #ffffff; 
     padding: 5px;
     border-radius: 8px;
     border: 1px solid var(--border-color);
@@ -181,6 +203,7 @@ p, li {
 a.btn {
     display: inline-block;
     padding: 12px 28px;
+    margin-right: 10px;
     background-color: #ffffff;
     color: var(--accent-dark);
     text-decoration: none;
@@ -204,6 +227,10 @@ a.btn:hover {
     font-size: 1.1rem;
 }
 
+.contact-links a:hover {
+    text-decoration: underline;
+    color: var(--accent-dark);
+}
 .contact-links a:hover {
     text-decoration: underline;
     color: var(--accent-dark);
