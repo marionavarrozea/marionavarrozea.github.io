@@ -18,13 +18,13 @@ html {
 
 .reveal {
     opacity: 0;
-    transform: translateX(-20px); /* Slides in from the left slightly */
-    transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1); /* Smoother "out" motion */
+    transform: translateY(20px); /* Changed from translateX to translateY */
+    transition: all 0.6s ease-out;
 }
 
 .reveal.active {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
 }
 
 body {
