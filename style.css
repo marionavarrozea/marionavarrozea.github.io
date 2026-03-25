@@ -157,22 +157,21 @@ nav.scrolled .brand-name {
 header#hero {
     background: linear-gradient(135deg, var(--accent-dark) 0%, #002244 100%);
     color: #ffffff;
-    padding-top: 220px; /* Increased to accommodate your taller header */
-    padding-bottom: 120px; /* Increased for more blue space at the bottom */
+    /* Added more padding to account for the taller header + more blue space */
+    padding-top: 220px; 
+    padding-bottom: 120px;
     border-bottom: 5px solid var(--accent-light);
     box-shadow: 0 10px 20px rgba(0, 59, 115, 0.15);
     margin-bottom: 60px;
 }
 
-/* Updated to ensure it matches the width of the rest of your site */
 .hero-inner {
     display: flex;
     align-items: center;
     gap: 40px;
     text-align: left;
-    max-width: 1100px; /* Matches your main .container width */
-    margin: 0 auto;
-    padding: 0 30px;
+    /* Since you have 'container' in the HTML, this ensures 
+       it behaves exactly like your other sections */
     width: 100%;
     box-sizing: border-box;
 }
@@ -192,10 +191,11 @@ header#hero h2 {
 
 header#hero p {
     color: #e2e8f0;
-    max-width: 100%; /* REMOVED the 700px limit so it fills the width */
-    margin: 0 0 25px 0;
-    font-size: 1.1rem;
-    line-height: 1.6; /* Added for better readability now that lines are longer */
+    /* This makes the text span the full width of the container */
+    max-width: 100%; 
+    margin: 0 0 35px 0;
+    font-size: 1.15rem;
+    line-height: 1.7; /* Slightly more space between lines for readability */
 }
 
 /* Sections */
