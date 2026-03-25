@@ -44,7 +44,7 @@ nav {
 
 .nav-inner {
     display: flex;
-    justify-content: center; /* Centered since the logo is gone */
+    justify-content: center; 
     align-items: center;
 }
 
@@ -120,17 +120,6 @@ header#hero p {
     font-size: 1.1rem;
 }
 
-/* Media Query for Mobile Responsiveness */
-@media (max-width: 768px) {
-    .hero-inner {
-        flex-direction: column;
-        text-align: center;
-    }
-    header#hero p {
-        margin: 0 auto 25px auto;
-    }
-}
-
 /* Sections */
 section {
     padding-top: 80px; 
@@ -157,16 +146,13 @@ p, li {
     text-align: justify;
 }
 
-/* Modern Card Layout */
+/* Accordion/Deployable Card Layout */
 .timeline .job {
     background-color: var(--card-bg);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
     margin-bottom: 25px;
-    display: flex;
-    align-items: flex-start;
-    gap: 25px;
     border-left: 6px solid var(--accent-light);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -174,6 +160,21 @@ p, li {
 .timeline .job:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Summary Layout (The Clickable Header) */
+.job-summary {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    cursor: pointer;
+    list-style: none; /* Hides the default HTML arrow */
+    outline: none;
+}
+
+/* Hides the default arrow in Safari/Chrome */
+.job-summary::-webkit-details-marker {
+    display: none;
 }
 
 .job-logo {
@@ -187,17 +188,48 @@ p, li {
     border: 1px solid var(--border-color);
 }
 
-.job-content {
+.job-header {
     flex-grow: 1;
+}
+
+/* Little text hint to show it's clickable */
+.click-hint {
+    font-size: 0.8rem;
+    color: var(--accent-light);
+    font-style: italic;
+    opacity: 0.7;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Hides the 'click hint' when the section is open */
+details[open] .click-hint {
+    display: none;
+}
+
+/* Content Layout (The Dropdown Bullet Points) */
+.job-content {
+    padding-left: 100px; /* 75px logo + 25px gap */
+    padding-top: 10px;
 }
 
 .timeline ul {
     padding-left: 20px;
-    margin-top: 10px;
+    margin-top: 0;
 }
 
 .timeline li {
     margin-bottom: 8px;
+}
+
+/* Smooth Dropdown Animation */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+details[open] .job-content {
+    animation: slideDown 0.4s ease-out;
 }
 
 /* Buttons and Links */
@@ -232,20 +264,29 @@ a.btn:hover {
     text-decoration: underline;
     color: var(--accent-dark);
 }
-/* This rule only applies to screens smaller than 768px (like phones) */
+
+/* Media Query for Mobile Responsiveness */
 @media (max-width: 768px) {
-    .job {
-        display: flex;
-        flex-direction: column; /* Stacks items vertically */
-        align-items: flex-start; /* Aligns items to the left (use 'center' to center the logo) */
+    .hero-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    header#hero p {
+        margin: 0 auto 25px auto;
     }
 
-    .job-logo {
-        margin-bottom: 15px; /* Adds space between the logo and the title */
+    /* Stack logo and title on mobile */
+    .job-summary {
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 15px; 
     }
 
+    /* Push text back to the left edge on mobile */
     .job-content {
-        width: 100%; /* Allows the text to stretch across the whole screen */
+        padding-left: 0; 
+        margin-top: 15px;
     }
 }
 .contact-links a:hover {
