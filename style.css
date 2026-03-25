@@ -42,7 +42,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 30px;
 }
@@ -118,7 +118,7 @@ header#hero {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 30px;
 }
