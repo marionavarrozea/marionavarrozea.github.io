@@ -1,6 +1,7 @@
 /* Enable smooth scrolling */
 html {
     scroll-behavior: smooth;
+    croll-padding-top: 120px; /* Prevents fixed header from covering section titles */
 }
 
 /* Aerospace Executive Theme Colors */
@@ -22,6 +23,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    padding-top: 340px; /* THIS IS THE MAGIC FIX */
     min-height: 100vh;
 }
 
@@ -35,8 +37,11 @@ body {
    Navigation & Shrinking Header Setup
    ========================================= */
 nav {
-    position: sticky;
+    position: fixed;
+    width: 100%;            /* ADDED */
+    left: 0;                /* ADDED */
     top: 0;
+    box-sizing: border-box; /* ADDED */
     background-color: #ffffff;
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
