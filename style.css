@@ -361,12 +361,24 @@ h3 { color: #003b73; margin-top: 0; margin-bottom: 5px; }
         padding: 20px 40px; /* 2. The Fix! 20px top/bottom, and 40px left/right indentation */
     }
 
+    /* 1. Shrink the big name down to fit the phone screen */
+    .brand-name {
+        font-size: 1.25rem !important; /* Forces the name to be smaller on mobile */
+    }
+
+    /* 2. Ensure the photo stays small right from the start */
     .brand-photo {
        width: 60px !important;   
        height: 60px !important;  
-       min-width: 60px;
-       min-height: 60px;
-   }
+       min-width: 60px !important;
+       min-height: 60px !important;
+    }
+    
+    /* 3. Keep the menu links at a normal size inside the mobile dropdown */
+    .nav-links a {
+        font-size: 1.1rem !important;
+    }
+   
 
     /* Bigger Mobile Logos */
     .job-logo {
