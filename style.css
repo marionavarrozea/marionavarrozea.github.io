@@ -315,17 +315,32 @@ a.btn:hover {
     }
 
     .nav-links {
-        display: none; /* Hide the links initially on mobile */
-        width: 100%;
+        display: flex;            /* Always flex, but we control visibility with height */
         flex-direction: column;
+        width: 100%;
         text-align: center;
-        padding-top: 20px;
         gap: 15px;
+        
+        /* THE ANIMATION MAGIC */
+        max-height: 0;            /* Start at zero height */
+        overflow: hidden;         /* Hide the text while closed */
+        opacity: 0;               /* Start invisible */
+        transition: max-height 0.4s ease-out, opacity 0.3s ease;
+        padding-top: 0;           /* No padding when closed */
     }
     
-    /* The Magic CSS to open the menu on mobile */
+    /* When the checkbox is clicked, slide down! */
     .menu-toggle:checked ~ .nav-links {
-        display: flex;
+        max-height: 500px;        /* Large enough to fit all links */
+        opacity: 1;               /* Become visible */
+        padding-top: 20px;        /* Add the space back */
+        padding-bottom: 20px;
+    }
+
+    /* Adjust the icon color when menu is open (Optional) */
+    .menu-toggle:checked ~ .nav-top-row .menu-button {
+        background-color: var(--accent-light);
+        color: white;
     }
 
     /* Hero adjustments */
