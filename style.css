@@ -50,7 +50,7 @@ nav {
 }
 
 .container {
-    max-width: 1200px; /* Increased to match the nav */
+    max-width: 1000px; /* Increased to match the nav */
     margin: 0 auto;
     padding: 0 30px;
 }
