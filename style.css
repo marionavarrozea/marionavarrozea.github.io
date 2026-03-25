@@ -1,7 +1,7 @@
 /* Enable smooth scrolling */
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px; /* Accounts for the height of the shrunken menu */
+    scroll-padding-top: 140px; /* Accounts for the height of the shrunken menu */
 }
 
 /* Aerospace Executive Theme Colors */
