@@ -106,8 +106,13 @@ nav.scrolled .brand-photo {
 header#hero {
     background: linear-gradient(135deg, #003b73 0%, #002244 100%);
     color: #ffffff;
-    padding: 240px 0 100px 0; /* Pushed down for larger nav */
+    padding: 220px 0 100px 0; /* Slightly balanced padding */
     border-bottom: 5px solid #0066cc;
+    
+    /* ADD THESE THREE LINES: */
+    min-height: 85vh; /* Forces the header to take up at least 85% of the screen height */
+    display: flex; 
+    align-items: center; /* Keeps your text vertically centered in the new tall space */
 }
 
 /* Overrides the global h2 style so the hero title stays white and clean */
