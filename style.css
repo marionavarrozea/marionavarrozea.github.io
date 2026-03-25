@@ -214,6 +214,46 @@ header#hero p, section p, li {
     background-color: #004c99;
 }
 
+/* Contact Section Fantasy Restructure */
+#contact {
+    text-align: center; /* Centers the title and cards */
+}
+
+.contact-fantasy {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #1a202c;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(0, 59, 115, 0.08);
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    background: white;
+    box-shadow: 0 12px 25px rgba(0, 102, 204, 0.2);
+    color: #0066cc;
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+}
+
 /* =========================================
    Mobile Fixes
    ========================================= */
