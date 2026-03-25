@@ -1,0 +1,137 @@
+/* Enable smooth scrolling for navigation links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Light theme color palette */
+:root {
+    --bg-color: #ffffff;
+    --text-primary: #222222;
+    --text-secondary: #555555;
+    --accent-color: #0056b3; /* A professional blue suitable for Aerospace */
+    --border-color: #eaeaea;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px 40px;
+}
+
+/* Navigation Menu */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+}
+
+nav .logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Sections */
+section {
+    padding-top: 100px; /* Space for the sticky header */
+    margin-bottom: 60px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+}
+
+h3 {
+    margin-bottom: 0.2rem;
+}
+
+p {
+    color: var(--text-secondary);
+}
+
+/* Timeline/Job layout */
+.timeline .job {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.timeline .job:last-child {
+    border-bottom: none;
+}
+
+.timeline ul {
+    padding-left: 20px;
+    color: var(--text-secondary);
+}
+
+.timeline li {
+    margin-bottom: 8px;
+}
+
+/* Buttons and Links */
+a.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+a.btn:hover {
+    background-color: #004494;
+}
+
+.contact-links a {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+}
