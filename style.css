@@ -154,11 +154,16 @@ nav.scrolled .nav-links a {
     transform: translateY(-4px);
 }
 
-/* Ensures the text stays justified inside the new box */
 .about-card p {
-    margin: 0;
+    margin-bottom: 20px; /* This creates the "breathable" space between paragraphs */
     text-align: justify;
-    line-height: 1.8;
+    line-height: 1.8;     /* This spreads the individual lines out slightly */
+}
+
+/* This tiny extra rule ensures the very last paragraph doesn't have 
+   extra space at the bottom of the white box */
+.about-card p:last-child {
+    margin-bottom: 0;
 }
 
 /* =========================================
