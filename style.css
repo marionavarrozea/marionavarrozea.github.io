@@ -43,7 +43,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap; 
-    max-width: 1300px; /* Comfortably wider than the text below */
+    max-width: 1200px; /* Comfortably wider than the text below */
     margin: 0 auto;
     padding: 0 30px;
     transition: max-width 0.4s ease; /* Makes the shrinking effect smooth */
