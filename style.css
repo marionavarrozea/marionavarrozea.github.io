@@ -350,15 +350,15 @@ h3 { color: #003b73; margin-top: 0; margin-bottom: 5px; }
         opacity: 0;
         overflow: hidden;
         transition: all 0.4s ease;
-        padding: 0;
-        text-align: center;
+        padding: 0; 
+        text-align: left; /* 1. Ensures the text aligns to the left instead of the center */
         border-bottom: 1px solid #e2e8f0;
     }
 
     .menu-toggle:checked ~ .nav-links {
         max-height: 400px;
         opacity: 1;
-        padding: 20px 0;
+        padding: 20px 40px; /* 2. The Fix! 20px top/bottom, and 40px left/right indentation */
     }
 
     .brand-photo {
