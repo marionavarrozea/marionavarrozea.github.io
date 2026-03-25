@@ -237,6 +237,21 @@ h3 { color: #003b73; margin-top: 0; margin-bottom: 5px; }
     border-left: 6px solid #00a3ff; /* Optional: A brighter blue "glow" for the edge */
     color: #ffffff; /* Turns the text white so it's readable on the dark background */
 }
+/* Placed right below .timeline .job:hover */
+
+/* 1. Targets the logo ONLY when the job card is hovered */
+.timeline .job:hover .job-logo {
+    background-color: #ffffff; /* Gives it a crisp white background */
+    padding: 10px; /* Adds breathing room around the logo inside the white box */
+    border-radius: 8px; /* Optional: Smooth, rounded corners like a mission patch */
+    box-shadow: 0 4px 10px rgba(0, 163, 255, 0.3); /* Optional: A subtle blue "glow" */
+    
+    /* Ensures the logo itself stays contained and doesn't stretch */
+    object-fit: contain; 
+    
+    /* Makes the white box fade in smoothly rather than snapping */
+    transition: all 0.3s ease; 
+}
 
 /* IMPORTANT: Ensure the job title and company name also turn white */
 .timeline .job:hover h3, 
