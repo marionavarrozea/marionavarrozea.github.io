@@ -46,7 +46,7 @@
 
     <div class="container main-content">
         
-        <section id="about">
+        <section id="about" class="reveal">
             <h2>About</h2>
             <p>I bridge the gap between theoretical aerospace engineering and hands-on technical execution. My academic and professional journey is deeply international, having trained at leading institutions across Europe—from my foundational degrees at the Universidad de Sevilla in Spain to my Master's studies at Politecnico di Milano in Italy, along with specialized space programs with ESA and Ariane Cities in the Netherlands and France.</p>
             
@@ -59,7 +59,7 @@
             <h2>Professional Experience</h2>
             <div class="timeline">
                 
-                <div class="job">
+                <div class="job reveal">
                     <img src="logos/esa.png" alt="European Space Agency Logo" class="job-logo">
                     <div class="job-content">
                         <h3>Intern in the Technology Department</h3>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
 
-                <div class="job">
+                <div class="job reveal">
                     <img src="logos/ejercito.png" alt="Spanish Air Force Logo" class="job-logo">
                     <div class="job-content">
                         <h3>Summer Engineering Intern</h3>
@@ -94,7 +94,7 @@
             <h2>Academic Background</h2>
             <div class="timeline">
                 
-                <div class="job">
+                <div class="job reveal">
                     <img src="logos/politecnico.png" alt="Politecnico di Milano Logo" class="job-logo">
                     <div class="job-content">
                         <h3>Master of Science in Space Engineering</h3>
@@ -105,7 +105,7 @@
                     </div>
                 </div>
 
-                <div class="job">
+                <div class="job reveal">
                     <img src="logos/universidadsevilla.png" alt="Universidad de Sevilla Logo" class="job-logo">
                     <div class="job-content">
                         <h3>Master of Science in Aeronautical Engineering</h3>
@@ -116,7 +116,7 @@
                     </div>
                 </div>
 
-                <div class="job">
+                <div class="job reveal">
                     <img src="logos/universidadsevilla.png" alt="Universidad de Sevilla Logo" class="job-logo">
                     <div class="job-content">
                         <h3>Bachelor of Science in Aerospace Engineering</h3>
@@ -135,7 +135,7 @@
             <h2>Awards & Conferences</h2>
             <div class="timeline">
                 
-                <div class="job">
+                <div class="job reveal">
                     <img src="logos/airbus.png" alt="Airbus Logo" class="job-logo">
                     <div class="job-content">
                         <h3>Best Bachelor's Thesis on an aerospace topic</h3>
@@ -146,7 +146,7 @@
                     </div>
                 </div>
 
-                <div class="job">
+                <div class="job reveal">
                     <img src="logos/erf.png" alt="European Rotorcraft Forum Logo" class="job-logo">
                     <div class="job-content">
                         <h3>51st European Rotorcraft Forum</h3>
@@ -157,7 +157,7 @@
                     </div>
                 </div>
 
-                <div class="job">
+                <div class="job reveal">
                     <img src="logos/pegasus.png" alt="PEGASUS Conference Logo" class="job-logo">
                     <div class="job-content">
                         <h3>20th PEGASUS Student Conference</h3>
@@ -175,7 +175,7 @@
             <h2>Involvement</h2>
             <div class="timeline">
                 
-                <div class="job">
+                <div class="job reveal">
                     <img src="logos/esa.png" alt="ESA Logo" class="job-logo">
                     <div class="job-content">
                         <h3>Participant in the 2nd Electric Propulsion Summer School</h3>
@@ -186,7 +186,7 @@
                     </div>
                 </div>
 
-                <div class="job">
+                <div class="job reveal">
                     <img src="logos/ESA_Academy_logo.jpg" alt="ESA Academy Logo" class="job-logo">
                     <div class="job-content">
                         <h3>Participant in the ESA Academy's Robotics Workshop</h3>
@@ -197,7 +197,7 @@
                     </div>
                 </div>
 
-                <div class="job">
+                <div class="job reveal">
                     <img src="logos/cva.png" alt="CVA Summer School Logo" class="job-logo">
                     <div class="job-content">
                         <h3>Participant in the 22nd CVA Summer School</h3>
@@ -207,7 +207,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="job">
+
+                <div class="job reveal">
                     <img src="logos/universidadsevilla.png" alt="Universidad de Sevilla Logo" class="job-logo">
                     <div class="job-content">
                         <h3>Intern at the Department of Aerospace Engineering</h3>
@@ -222,7 +223,7 @@
             </div>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="reveal">
             <h2>Contact</h2>
             <div class="contact-links">
                 <a href="mailto:marionavarrozea@gmail.com">marionavarrozea@gmail.com</a>
@@ -234,6 +235,7 @@
     </div>
     
     <script>
+        // Header scroll behavior
         window.addEventListener('scroll', function() {
             const nav = document.getElementById('main-nav');
             if (window.scrollY > 0) {
@@ -242,18 +244,30 @@
                 nav.classList.remove('scrolled');
             }
         });
-        // Reveal elements on scroll
+
+        // Intersection Observer for Scroll Reveals
+        const observerOptions = {
+            threshold: 0.15, // Trigger when 15% is visible
+            rootMargin: "0px 0px -50px 0px" // Trigger slightly before it hits the bottom
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.1 }); // Triggers when 10% of the element is visible
-    
-        // Tell the observer to watch every element with the 'reveal' class
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+        }, observerOptions);
+
+        // Function to start observing elements
+        function initReveal() {
+            document.querySelectorAll('.reveal').forEach((el) => {
+                observer.observe(el);
+            });
+        }
+
+        // Initialize on load
+        window.addEventListener('load', initReveal);
     </script>
 </body>
 </html>
-
