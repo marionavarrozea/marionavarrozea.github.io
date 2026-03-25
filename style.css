@@ -50,7 +50,7 @@ nav {
 }
 
 .container {
-    max-width: 1200px; /* Increased to match the nav */
+    max-width: 1000px; /* Increased to match the nav */
     margin: 0 auto;
     padding: 0 30px;
 }
@@ -78,7 +78,7 @@ nav {
 }
 
 .brand-name {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     margin: 0;
     color: #1a202c;
 }
@@ -109,7 +109,7 @@ nav.scrolled {
 }
 /* Snaps the header inward to align with your text when scrolling */
 nav.scrolled .nav-container {
-    max-width: 1200px; 
+    max-width: 1000px; 
 }
 nav.scrolled .brand-photo {
     width: 50px;
