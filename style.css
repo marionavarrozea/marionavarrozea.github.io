@@ -154,6 +154,7 @@ h3 {
 
 p, li {
     color: var(--text-secondary);
+    text-align: justify;
 }
 
 /* Modern Card Layout */
