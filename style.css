@@ -1,7 +1,7 @@
 /* Enable smooth scrolling */
 html {
     scroll-behavior: smooth;
-    croll-padding-top: 120px; /* Prevents fixed header from covering section titles */
+    scroll-padding-top: 100px; /* Accounts for the height of the shrunken menu */
 }
 
 /* Aerospace Executive Theme Colors */
@@ -22,18 +22,8 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    
-    /* INITIAL STATE: Large space for the big header */
-    padding-top: 320px; 
-    /* This makes the page slide smoothly at the same 0.4s speed as the header */
-    transition: padding-top 0.4s ease; 
-    
+    padding: 0;
     min-height: 100vh;
-}
-
-/* SCROLLED STATE: Pulls the blue section up to close the gap */
-body.scrolled-body {
-    padding-top: 100px; /* Small space for the shrunken header */
 }
 
 .container {
@@ -174,7 +164,8 @@ nav.scrolled .brand-name {
 header#hero {
     background: linear-gradient(135deg, var(--accent-dark) 0%, #002244 100%);
     color: #ffffff;
-    padding: 80px 0;
+    padding-top: 320px;    /* Pushes content down so the big menu doesn't cover it */
+    padding-bottom: 80px;
     border-bottom: 5px solid var(--accent-light);
     box-shadow: 0 10px 20px rgba(0, 59, 115, 0.15);
     margin-bottom: 60px;
