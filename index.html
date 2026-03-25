@@ -38,8 +38,10 @@
             <div class="hero-text">
                 <h2>Future Space & Aeronautical Engineer</h2>
                 <p>I am a dedicated aerospace engineer specializing in space systems, propulsion, and AIVT (Assembly, Integration, Verification and Testing). Currently contributing to the European Space Agency as an intern in the Technology Department, my background is defined by hands-on experimental research and a strong international academic foundation built across Spain, Italy, France, and the Netherlands.</p>
-                <a href="#contact" class="btn">Contact Me</a>
-                <a href="NavarroZea_032026.pdf" class="btn" download>Download CV</a>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Contact Me</a>
+                    <a href="NavarroZea_032026.pdf" class="btn" download>Download CV</a>
+                </div>
             </div>
         </div>
     </header>
@@ -234,21 +236,33 @@
 
     </div>
     
+    <button id="scrollTopBtn" onclick="window.scrollTo(0,0)" title="Go to top">&#8679;</button>
+
     <script>
-        // Header scroll behavior
+        // Header and Scroll Button behavior
+        const nav = document.getElementById('main-nav');
+        const scrollBtn = document.getElementById("scrollTopBtn");
+
         window.addEventListener('scroll', function() {
-            const nav = document.getElementById('main-nav');
+            // Navbar shrink effect
             if (window.scrollY > 0) {
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
             }
+
+            // Show/hide scroll to top button
+            if (window.scrollY > 400) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
         });
 
         // Intersection Observer for Scroll Reveals
         const observerOptions = {
-            threshold: 0.15, // Trigger when 15% is visible
-            rootMargin: "0px 0px -50px 0px" // Trigger slightly before it hits the bottom
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px" 
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -266,6 +280,7 @@
                 menuToggle.checked = false;
             });
         });
+
         // Function to start observing elements
         function initReveal() {
             document.querySelectorAll('.reveal').forEach((el) => {
