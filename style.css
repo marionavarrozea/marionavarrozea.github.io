@@ -256,10 +256,13 @@ header#hero p, section p, li {
     }
 
     .brand-photo {
-        width: 50px !important;
-        height: 50px !important;
-        min-width: 50px;
-    }
+       width: 60px !important;   /* Slightly larger for visibility */
+       height: 60px !important;  /* Must match width exactly */
+       min-width: 60px;
+       min-height: 60px;
+       object-fit: cover;        /* Ensures the face isn't stretched */
+       border-radius: 50%;       /* Re-confirming the circle */
+   }
 
     .timeline .job {
         flex-direction: column;
