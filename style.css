@@ -31,7 +31,9 @@ body {
     padding: 0 30px;
 }
 
-/* Navigation Menu Setup */
+/* =========================================
+   Navigation & Shrinking Header Setup
+   ========================================= */
 nav {
     position: sticky;
     top: 0;
@@ -39,44 +41,103 @@ nav {
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     z-index: 1000;
-    padding: 15px 0;
+    padding: 30px 0;
+    transition: all 0.4s ease; /* Smooth shrinking effect */
 }
 
-.nav-inner {
+/* Container for Brand and Button */
+.nav-top-row {
     display: flex;
-    flex-direction: column; /* Allows the menu to drop down below the button */
+    flex-direction: column; /* Centered layout initially */
     align-items: center;
+    gap: 15px;
+    transition: all 0.4s ease;
 }
 
-/* Hide the actual checkbox */
+/* Brand (Photo & Name) */
+.brand {
+    display: flex;
+    flex-direction: column; /* Photo above name initially */
+    align-items: center;
+    gap: 15px;
+    transition: all 0.4s ease;
+}
+
+.brand-photo {
+    width: 150px; /* Big initial size */
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+
+.brand-name {
+    font-size: 2.2rem;
+    margin: 0;
+    color: var(--text-primary);
+    transition: all 0.4s ease;
+    text-align: center;
+}
+
+/* =========================================
+   THE SCROLLED STATE (Triggered by JS)
+   ========================================= */
+nav.scrolled {
+    padding: 10px 0; /* Shrinks the navbar height */
+}
+
+nav.scrolled .nav-top-row {
+    flex-direction: row; /* Moves brand left and menu right */
+    justify-content: space-between;
+}
+
+nav.scrolled .brand {
+    flex-direction: row; /* Puts photo and name side-by-side */
+    gap: 15px;
+}
+
+nav.scrolled .brand-photo {
+    width: 50px; /* Shrinks the photo */
+    height: 50px;
+}
+
+nav.scrolled .brand-name {
+    font-size: 1.3rem; /* Shrinks the name */
+}
+
+/* =========================================
+   Menu Button & Deployable Links
+   ========================================= */
 .menu-toggle {
     display: none;
 }
 
-/* The Menu Button Styling */
 .menu-button {
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--accent-dark);
-    display: none; /* Hidden on large desktop screens by default */
-    padding: 5px 15px;
+    display: block;
+    padding: 8px 20px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
     background-color: #f8fafc;
+    transition: background-color 0.3s;
 }
 
 .menu-button:hover {
     background-color: #e2e8f0;
 }
 
-/* The Links List */
 .nav-links {
     list-style: none;
-    display: flex; /* Horizontal on desktop */
-    gap: 25px;
+    display: none; /* Hidden until clicked */
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
     margin: 0;
-    padding: 0;
+    gap: 15px;
 }
 
 .nav-links a {
@@ -84,34 +145,17 @@ nav {
     color: var(--text-secondary);
     font-weight: 600;
     transition: color 0.3s ease;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
 }
 
 .nav-links a:hover {
     color: var(--accent-light);
 }
 
-/* Mobile Dropdown Logic */
-@media (max-width: 768px) {
-    .menu-button {
-        display: block; /* Show the Menu button on smaller screens */
-    }
-
-    .nav-links {
-        display: none; /* Hide the links initially */
-        flex-direction: column; /* Stack them vertically */
-        width: 100%;
-        text-align: center;
-        padding-top: 15px;
-        gap: 15px;
-    }
-
-    /* THE MAGIC: When the checkbox is checked, display the links! */
-    .menu-toggle:checked ~ .nav-links {
-        display: flex;
-    }
+/* Displays the links when button is clicked */
+.menu-toggle:checked ~ .nav-links {
+    display: flex;
 }
-
 /* Hero Section with Photo */
 header#hero {
     background: linear-gradient(135deg, var(--accent-dark) 0%, #002244 100%);
