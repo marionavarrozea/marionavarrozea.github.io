@@ -16,17 +16,15 @@ html {
     --border-color: #e2e8f0;
 }
 
-/* The initial state: invisible and shifted down */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
+    transform: translateX(-20px); /* Slides in from the left slightly */
+    transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1); /* Smoother "out" motion */
 }
 
-/* The active state: visible and in its natural position */
 .reveal.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
 }
 
 body {
