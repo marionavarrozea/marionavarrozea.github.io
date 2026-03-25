@@ -138,6 +138,30 @@ nav.scrolled .nav-links a {
     font-size: 1rem; 
 }
 
+/* Creates the white "bubble" for the About section */
+.about-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px; /* Matches your job cards */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft professional shadow */
+    transition: all 0.3s ease;
+    border-left: 6px solid #0066cc; /* Optional: adds the same blue stripe as the jobs */
+}
+
+/* Adds that nice hover effect we just built for the others */
+.about-card:hover {
+    background-color: #002d59; /* The deep space blue you liked */
+    color: #ffffff; /* Turns text white on hover */
+    transform: translateY(-4px);
+}
+
+/* Ensures the text stays justified inside the new box */
+.about-card p {
+    margin: 0;
+    text-align: justify;
+    line-height: 1.8;
+}
+
 /* =========================================
    Hero & Content
    ========================================= */
