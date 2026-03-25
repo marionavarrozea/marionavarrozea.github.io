@@ -120,14 +120,14 @@ nav {
 .menu-button {
     display: none; /* Hidden on desktop, shown on mobile */
     cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.5rem; /* INCREASED: Makes the three bars bigger and easier to tap */
     color: var(--accent-dark);
-    padding: 8px 15px;
+    padding: 6px 12px; /* ADJUSTED: Makes the button a nicer shape for an icon */
     border: 1px solid var(--border-color);
     border-radius: 5px;
     background-color: #f8fafc;
     transition: background-color 0.3s;
+    line-height: 1; /* Keeps the button from getting too tall */
 }
 
 .menu-button:hover {
