@@ -259,6 +259,13 @@
             });
         }, observerOptions);
 
+        // Close menu when link is clicked
+        const menuToggle = document.getElementById('menu-toggle');
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.checked = false;
+            });
+        });
         // Function to start observing elements
         function initReveal() {
             document.querySelectorAll('.reveal').forEach((el) => {
