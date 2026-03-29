@@ -275,9 +275,9 @@ nav.scrolled .nav-links a {
 
 /* Skill Item & Tag Hover Adaptations */
 .about-card:hover .skill-item {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
-    color: var(--hover-text);
+    background: #ffffff;          /* Makes the bubble solid white */
+    border-color: #ffffff;        /* Makes the border solid white */
+    color: var(--text-heading);   /* Changes text to dark blue so you can read it on the white background! */
 }
 
 .about-card:hover .tag {
