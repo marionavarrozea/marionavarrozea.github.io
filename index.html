@@ -15,6 +15,7 @@
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KP38BN6G"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
     <div class="scroll-progress-container">
         <div class="scroll-progress-bar" id="telemetryBar"></div>
     </div>
@@ -159,6 +160,9 @@
                         <ul>
                             <li>Presented the characterization of electric motors efficiency for the development for eVTOL convertible aircraft.</li>
                         </ul>
+                        <p style="margin-top: 15px;">
+                            <a href="javascript:void(0)" class="btn outline" onclick="openModal('thesisModal')">View Research Details & Paper</a>
+                        </p>
                     </div>
                 </div>
 
@@ -275,67 +279,6 @@
     
     <button id="scrollTopBtn" title="Go to top">↑</button>
 
-    <script>
-        // Header and Scroll Button behavior
-        const nav = document.getElementById('main-nav');
-        const scrollBtn = document.getElementById("scrollTopBtn");
-
-        window.addEventListener('scroll', function() {
-            // Navbar shrink effect
-            if (window.scrollY > 0) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-
-            // Show/hide scroll to top button
-            if (window.scrollY > 400) {
-                scrollBtn.style.display = "block";
-            } else {
-                scrollBtn.style.display = "none";
-            }
-            
-            // THE UPGRADE: Telemetry Scroll Progress Bar Calculation
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            document.getElementById("telemetryBar").style.width = scrolled + "%";
-        });
-
-        // Click to scroll to top
-        scrollBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Intersection Observer for Scroll Reveals
-        const observerOptions = {
-            threshold: 0.15
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        // Close menu when link is clicked
-        const menuToggle = document.getElementById('menu-toggle');
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.checked = false;
-            });
-        });
-
-        // Apply observer
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-    </script>
-    <p>
-        Presented research at the 51st European Rotorcraft Forum. 
-        <a href="javascript:void(0)" class="btn outline" onclick="openModal('thesisModal')">View Research Details & Paper</a>
-    </p>
-    
     <div id="thesisModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('thesisModal')">&times;</span>
@@ -349,24 +292,24 @@
     
             <div class="modal-body">
                 <h3>Project Overview</h3>
-                <p>The research focused on the comparative analysis of performances of different motor-propeller combinations for the characterization of electric motors efficiency[cite: 279, 280]. This work was part of the ProVANT-EMERGENTIa project, which aims to develop a fixed-wing convertible RPAS with VTOL capabilities for search-and-rescue missions[cite: 294, 295].</p>
+                <p>The research focused on the comparative analysis of performances of different motor-propeller combinations for the characterization of electric motors efficiency. This work was part of the ProVANT-EMERGENTIa project, which aims to develop a fixed-wing convertible RPAS with VTOL capabilities for search-and-rescue missions.</p>
     
                 <div class="image-grid">
                     <div class="image-placeholder">
                         <img src="assets/wind_tunnel_setup.jpg" alt="ETSI Wind Tunnel Setup">
-                        <caption>Fig 1. Setup integrated in the wind tunnel [cite: 829]</caption>
+                        <caption>Fig 1. Setup integrated in the wind tunnel</caption>
                     </div>
                     <div class="image-placeholder">
                         <img src="assets/tyto_test_stand.jpg" alt="Tyto Robotics Test Stand">
-                        <caption>Fig 2. Tyto Robotics Series 1585 Test Stand [cite: 307]</caption>
+                        <caption>Fig 2. Tyto Robotics Series 1585 Test Stand</caption>
                     </div>
                 </div>
     
                 <h3>Methodology & Setup</h3>
-                <p>The experimental setup utilized a Tyto Robotics Series 1585 Test Stand [cite: 315, 316] integrated into the ETSI wind tunnel[cite: 307]. We tested several Brushless DC (BLDC) motors, including AXI and Turnigy models, alongside APC propellers[cite: 38, 41, 54]. By varying the RPM and incident airspeed, we collected comprehensive data on thrust, torque, voltage, and current[cite: 287, 842].</p>
+                <p>The experimental setup utilized a Tyto Robotics Series 1585 Test Stand integrated into the ETSI wind tunnel. We tested several Brushless DC (BLDC) motors, including AXI and Turnigy models, alongside APC propellers. By varying the RPM and incident airspeed, we collected comprehensive data on thrust, torque, voltage, and current.</p>
                 
                 <h3>Data Processing</h3>
-                <p>To produce accurate results, an effective data processing method was developed using Python[cite: 838, 840]. The pandas library was used for data loading, while scikit-learn's EllipticEnvelope function was implemented for outlier detection, removing the 10% of data points that deviated furthest from the statistical center[cite: 842, 843, 844].</p>
+                <p>To produce accurate results, an effective data processing method was developed using Python. The pandas library was used for data loading, while scikit-learn's EllipticEnvelope function was implemented for outlier detection, removing the 10% of data points that deviated furthest from the statistical center.</p>
     
                 <h3>Publications & Visualizations</h3>
                 <p>Below you can visualize the paper presented at the 51st European Rotorcraft Forum. You can also view the methodology adapted for the PEGASUS conference.</p>
@@ -379,5 +322,7 @@
             </div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
