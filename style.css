@@ -1,4 +1,74 @@
 /* =========================================
+   CSS Variables (Light & Dark Mode Automation)
+   ========================================= */
+
+/* 1. LIGHT MODE (DEFAULT) */
+:root {
+    --text-main: #1a202c;
+    --text-muted: #4a5568;
+    --text-heading: #003b73;
+    
+    --accent-blue: #0066cc;
+    --accent-blue-hover: #004c99;
+    --accent-glow: #00a3ff;
+    
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --nav-border: #e2e8f0;
+    
+    --card-bg: #ffffff;
+    --card-bg-trans: rgba(255, 255, 255, 0.6);
+    --card-border-trans: rgba(255, 255, 255, 0.9);
+    --card-shadow: rgba(0, 0, 0, 0.05);
+    
+    --hover-bg: #002d59;
+    --hover-text: #ffffff;
+    --badge-bg: #ffffff; /* The logo badge on hover */
+    
+    --bg-grad-1: rgba(220, 229, 242, 0.8);
+    --bg-grad-2: rgba(226, 234, 244, 0.85);
+    
+    --hero-grad-1: #003b73;
+    --hero-grad-2: #002244;
+    --hero-text: #ffffff;
+    
+    --footer-border: #d1d9e6;
+}
+
+/* 2. DARK MODE (AUTO-ACTIVATES) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-main: #f1f5f9;
+        --text-muted: #94a3b8;
+        --text-heading: #60a5fa; /* A lighter, glowing blue for dark mode readability */
+        
+        --accent-blue: #3b82f6;
+        --accent-blue-hover: #60a5fa;
+        --accent-glow: #38bdf8;
+        
+        --nav-bg: rgba(15, 23, 42, 0.95);
+        --nav-border: #334155;
+        
+        --card-bg: #1e293b;
+        --card-bg-trans: rgba(30, 41, 59, 0.7);
+        --card-border-trans: rgba(51, 65, 85, 0.9);
+        --card-shadow: rgba(0, 0, 0, 0.3);
+        
+        --hover-bg: #f8fafc; /* Inverts the hover effect to be bright */
+        --hover-text: #0f172a; /* Inverts hover text to be dark */
+        --badge-bg: #0f172a; /* Makes the logo badge dark so it pops against the bright hover */
+        
+        --bg-grad-1: rgba(15, 23, 42, 0.88); /* Dims the Ariane 6 photo for dark mode */
+        --bg-grad-2: rgba(30, 41, 59, 0.92);
+        
+        --hero-grad-1: #0f172a;
+        --hero-grad-2: #020617;
+        --hero-text: #f1f5f9;
+        
+        --footer-border: #334155;
+    }
+}
+
+/* =========================================
    Universal Fixes & Smooth Scroll
    ========================================= */
 * {
@@ -7,7 +77,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 220px; /* Increased so anchor links don't hide behind the taller nav */
+    scroll-padding-top: 220px;
 }
 
 body {
@@ -16,19 +86,20 @@ body {
     width: 100%;
     overflow-x: hidden; 
 
-    /* THE UPGRADE: A semi-transparent gradient placed OVER your image */
+    /* Uses variables so the gradient over the image dims automatically in Dark Mode */
     background-image: 
-        linear-gradient(135deg, rgba(220, 229, 242, 0.8) 0%, rgba(226, 234, 244, 0.85) 100%),
-        url('ariane64.jpeg'); /* <-- Put your actual image file name here! */
+        linear-gradient(135deg, var(--bg-grad-1) 0%, var(--bg-grad-2) 100%),
+        url('ariane64.jpeg'); 
     
-    background-size: cover; /* Ensures the photo stretches to fill the screen */
-    background-position: center center; /* Keeps the rocket centered */
-    background-attachment: fixed; /* Optional magic: Keeps the rocket locked in place while the text scrolls over it! */
+    background-size: cover; 
+    background-position: center center; 
+    background-attachment: fixed; 
     background-repeat: no-repeat;
     
-    color: #1a202c;
+    color: var(--text-main);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
+    transition: background-image 0.4s ease, color 0.4s ease;
 }
 
 /* =========================================
@@ -40,10 +111,10 @@ nav {
     top: 0;
     left: 0;
     z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: var(--nav-bg);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid #e2e8f0;
-    padding: 45px 0; /* Increased slightly to give the bigger photo breathing room */
+    border-bottom: 1px solid var(--nav-border);
+    padding: 45px 0; 
     transition: all 0.4s ease;
 }
 
@@ -52,19 +123,18 @@ nav {
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap; 
-    max-width: 1200px; /* Comfortably wider than the text below */
+    max-width: 1200px; 
     margin: 0 auto;
     padding: 0 30px;
-    transition: max-width 0.4s ease; /* Makes the shrinking effect smooth */
+    transition: max-width 0.4s ease; 
 }
 
 .container {
-    max-width: 1000px; /* Increased to match the nav */
+    max-width: 1000px; 
     margin: 0 auto;
     padding: 0 30px;
 }
 
-/* Fixes the alignment of the laptop navigation bar */
 .nav-top-row {
     display: flex;
     align-items: center;
@@ -73,7 +143,7 @@ nav {
 .brand {
     display: flex;
     align-items: center;
-    gap: 30px; /* Separates the name from the image nicely */
+    gap: 30px; 
     flex-shrink: 0;
 }
 
@@ -87,10 +157,10 @@ nav {
 }
 
 .brand-name {
-    font-size: 1.8rem; /* Big starting size to match the large photo */
+    font-size: 1.8rem; 
     margin: 0;
-    color: #1a202c;
-    transition: font-size 0.4s ease; /* Makes the shrinking smooth */
+    color: var(--text-main);
+    transition: font-size 0.4s ease, color 0.4s ease; 
 }
 
 .nav-links {
@@ -103,14 +173,14 @@ nav {
 
 .nav-links a {
     text-decoration: none;
-    color: #4a5568;
+    color: var(--text-muted);
     font-weight: 600;
-    font-size: 1.15rem; /* Slightly larger starting size for the menu */
-    transition: color 0.3s, font-size 0.4s ease; /* Animates both color and size */
+    font-size: 1.15rem; 
+    transition: color 0.3s, font-size 0.4s ease; 
 }
 
 .nav-links a:hover {
-    color: #0066cc;
+    color: var(--accent-blue);
 }
 
 /* Scrolled Navbar */
@@ -118,7 +188,6 @@ nav.scrolled {
     padding: 10px 0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
-/* Snaps the header inward to align with your text when scrolling */
 nav.scrolled .nav-container {
     max-width: 1000px; 
 }
@@ -128,40 +197,34 @@ nav.scrolled .brand-photo {
     min-width: 50px;
     min-height: 50px;
 }
-/* Shrinks your name when scrolling */
 nav.scrolled .brand-name {
     font-size: 1.25rem; 
 }
-
-/* Shrinks the menu links when scrolling */
 nav.scrolled .nav-links a {
     font-size: 1rem; 
 }
 
-/* Creates the white "bubble" for the About section */
+/* Creates the card for the About section */
 .about-card {
-    background: white;
+    background: var(--card-bg);
     padding: 30px;
-    border-radius: 8px; /* Matches your job cards */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft professional shadow */
+    border-radius: 8px; 
+    box-shadow: 0 4px 15px var(--card-shadow); 
     transition: all 0.3s ease;
 }
 
-/* Adds that nice hover effect we just built for the others */
 .about-card:hover {
-    background-color: #002d59; /* The deep space blue you liked */
-    color: #ffffff; /* Turns text white on hover */
+    background-color: var(--hover-bg); 
+    color: var(--hover-text); 
     transform: translateY(-4px);
 }
 
 .about-card p {
-    margin-bottom: 20px; /* This creates the "breathable" space between paragraphs */
+    margin-bottom: 20px; 
     text-align: justify;
-    line-height: 1.8;     /* This spreads the individual lines out slightly */
+    line-height: 1.8;     
 }
 
-/* This tiny extra rule ensures the very last paragraph doesn't have 
-   extra space at the bottom of the white box */
 .about-card p:last-child {
     margin-bottom: 0;
 }
@@ -170,22 +233,21 @@ nav.scrolled .nav-links a {
    Hero & Content
    ========================================= */
 header#hero {
-    background: linear-gradient(135deg, #003b73 0%, #002244 100%);
-    color: #ffffff;
-    padding: 260px 0 100px 0; /* Increased top padding to push the text safely below the taller nav */
-    border-bottom: 5px solid #0066cc;
+    background: linear-gradient(135deg, var(--hero-grad-1) 0%, var(--hero-grad-2) 100%);
+    color: var(--hero-text);
+    padding: 260px 0 100px 0; 
+    border-bottom: 5px solid var(--accent-blue);
     min-height: 85vh; 
     display: flex; 
     align-items: center; 
 }
 
-/* Overrides the global h2 style so the hero title stays white and clean */
 header#hero h2 {
-    color: #ffffff;
+    color: var(--hero-text);
     border-bottom: none;
     margin-bottom: 15px;
     display: block;
-    font-size: 1.8rem; /* Slightly larger than section titles, but smaller than laptop */
+    font-size: 1.8rem; 
 }
 
 header#hero p, section p, li {
@@ -199,7 +261,7 @@ header#hero p, section p, li {
 
 .btn {
     display: inline-block;
-    background-color: #0066cc;
+    background-color: var(--accent-blue);
     color: white;
     padding: 12px 24px;
     text-decoration: none;
@@ -210,7 +272,7 @@ header#hero p, section p, li {
 }
 
 .btn:hover {
-    background-color: #004c99;
+    background-color: var(--accent-blue-hover);
     transform: translateY(-2px);
 }
 
@@ -224,21 +286,20 @@ header#hero p, section p, li {
     transform: translateY(0);
 }
 
-/* Section Spacing - Reduced per your request */
 section {
     padding-top: 60px; 
 }
 
 h2 {
-    color: #003b73;
+    color: var(--text-heading);
     font-size: 1.6rem;
     margin-bottom: 20px;
-    border-bottom: 3px solid #0066cc;
+    border-bottom: 3px solid var(--accent-blue);
     display: inline-block;
     padding-bottom: 5px;
 }
 
-h3 { color: #003b73; margin-top: 0; margin-bottom: 5px; }
+h3 { color: var(--text-heading); margin-top: 0; margin-bottom: 5px; }
 
 .job-logo {
     width: 70px;
@@ -249,44 +310,38 @@ h3 { color: #003b73; margin-top: 0; margin-bottom: 5px; }
 
 /* Job Hover Effect */
 .timeline .job {
-    background: white;
+    background: var(--card-bg);
     padding: 30px;
     margin-bottom: 25px;
-    border-left: 6px solid #0066cc;
-    transition: background-color 0.3s, transform 0.3s;
+    border-left: 6px solid var(--accent-blue);
+    transition: background-color 0.3s, transform 0.3s, color 0.3s;
     display: flex;
     gap: 25px;
     border-radius: 0 5px 5px 0;
+    box-shadow: 0 4px 15px var(--card-shadow);
 }
-/* Job Hover Effect - Darker & More Professional */
+
 .timeline .job:hover {
-    background-color: #002d59; /* Matching the deep space blue of your contact cards */
+    background-color: var(--hover-bg); 
     transform: translateY(-4px); 
-    border-left: 6px solid #00a3ff; /* Optional: A brighter blue "glow" for the edge */
-    color: #ffffff; /* Turns the text white so it's readable on the dark background */
+    border-left: 6px solid var(--accent-glow); 
+    color: var(--hover-text); 
 }
-/* Placed right below .timeline .job:hover */
 
 .timeline .job:hover .job-logo {
-    background-color: #ffffff;
-    /* 1. Increase the total size to account for the padding */
+    background-color: var(--badge-bg);
     width: 90px; 
     height: 90px;
-    
-    /* 2. Keep the padding comfortable */
     padding: 10px; 
     border-radius: 8px;
-    
-    /* Ensures the image doesn't distort while filling the new 90px space */
     object-fit: contain; 
     transition: all 0.3s ease;
 }
 
-/* IMPORTANT: Ensure the job title and company name also turn white */
 .timeline .job:hover h3, 
 .timeline .job:hover p, 
 .timeline .job:hover li {
-    color: #ffffff;
+    color: var(--hover-text);
 }
 
 /* =========================================
@@ -305,18 +360,18 @@ h3 { color: #003b73; margin-top: 0; margin-bottom: 5px; }
 }
 
 .contact-card {
-    background: rgba(255, 255, 255, 0.6);
+    background: var(--card-bg-trans);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--card-border-trans);
     border-radius: 15px;
     padding: 20px 30px;
     display: flex;
     align-items: center;
     gap: 15px;
     text-decoration: none;
-    color: #1a202c;
+    color: var(--text-main);
     font-weight: 600;
-    box-shadow: 0 8px 20px rgba(0, 59, 115, 0.08);
+    box-shadow: 0 8px 20px var(--card-shadow);
     transition: all 0.3s ease;
 }
 
@@ -324,37 +379,30 @@ h3 { color: #003b73; margin-top: 0; margin-bottom: 5px; }
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #003b73;
+    color: var(--text-heading);
     transition: color 0.3s ease;
 }
 
 .contact-card:hover {
     transform: translateY(-5px);
-    
-    /* CHANGE THIS: A darker, more professional blue */
-    background: #002d59; 
-    
-    /* CHANGE THIS: Make the text white so it's readable on the dark blue */
-    color: #ffffff; 
-    
+    background: var(--hover-bg); 
+    color: var(--hover-text); 
     box-shadow: 0 12px 25px rgba(0, 102, 204, 0.3);
-    border: 1px solid #003b73;
+    border: 1px solid var(--accent-blue);
 }
 
-/* IMPORTANT: Also change the icon color on hover so it doesn't disappear */
 .contact-card:hover .contact-icon {
-    color: #ffffff;
+    color: var(--hover-text);
 }
-
 
 /* Site Footer */
 .site-footer {
     text-align: center;
-    padding: 60px 20px 40px; /* Gives nice breathing room at the end */
+    padding: 60px 20px 40px; 
     margin-top: 40px;
-    color: #4a5568;
+    color: var(--text-muted);
     font-size: 0.95rem;
-    border-top: 1px solid #d1d9e6;
+    border-top: 1px solid var(--footer-border);
 }
 
 /* Scroll Top Button */
@@ -364,7 +412,7 @@ h3 { color: #003b73; margin-top: 0; margin-bottom: 5px; }
     bottom: 30px;
     right: 30px;
     z-index: 1001;
-    background-color: #0066cc;
+    background-color: var(--accent-blue);
     color: white;
     border: none;
     width: 50px;
@@ -377,7 +425,7 @@ h3 { color: #003b73; margin-top: 0; margin-bottom: 5px; }
 }
 
 #scrollTopBtn:hover {
-    background-color: #004c99;
+    background-color: var(--accent-blue-hover);
 }
 
 /* =========================================
@@ -387,12 +435,11 @@ h3 { color: #003b73; margin-top: 0; margin-bottom: 5px; }
 .menu-button { display: none; }
 
 @media (max-width: 768px) {
-    /* MOBILE MENU FIX - Forced to right edge */
     .menu-button { 
         display: block; 
         cursor: pointer; 
         font-size: 2rem; 
-        color: #1a202c;
+        color: var(--text-main);
         padding-left: 15px; 
     }
     
@@ -400,13 +447,13 @@ h3 { color: #003b73; margin-top: 0; margin-bottom: 5px; }
         width: 100%; 
         display: flex;
         align-items: center;
-        justify-content: space-between; /* This guarantees the toggle goes to the far right */
+        justify-content: space-between; 
     }
 
     .nav-container {
         flex-direction: column;
         padding: 0 20px;
-        align-items: stretch; /* Prevents center-squishing */
+        align-items: stretch; 
     }
     
     .nav-links {
@@ -416,28 +463,26 @@ h3 { color: #003b73; margin-top: 0; margin-bottom: 5px; }
         top: 100%;
         left: 0;
         width: 100%;
-        background: white;
+        background: var(--card-bg);
         max-height: 0;
         opacity: 0;
         overflow: hidden;
         transition: all 0.4s ease;
         padding: 0; 
-        text-align: left; /* 1. Ensures the text aligns to the left instead of the center */
-        border-bottom: 1px solid #e2e8f0;
+        text-align: left; 
+        border-bottom: 1px solid var(--nav-border);
     }
 
     .menu-toggle:checked ~ .nav-links {
         max-height: 400px;
         opacity: 1;
-        padding: 20px 40px; /* 2. The Fix! 20px top/bottom, and 40px left/right indentation */
+        padding: 20px 40px; 
     }
 
-    /* 1. Shrink the big name down to fit the phone screen */
     .brand-name {
-        font-size: 1.25rem !important; /* Forces the name to be smaller on mobile */
+        font-size: 1.25rem !important; 
     }
 
-    /* 2. Ensure the photo stays small right from the start */
     .brand-photo {
        width: 60px !important;   
        height: 60px !important;  
@@ -445,13 +490,10 @@ h3 { color: #003b73; margin-top: 0; margin-bottom: 5px; }
        min-height: 60px !important;
     }
     
-    /* 3. Keep the menu links at a normal size inside the mobile dropdown */
     .nav-links a {
         font-size: 1.1rem !important;
     }
    
-
-    /* Bigger Mobile Logos */
     .job-logo {
         width: 90px;
         height: 90px;
