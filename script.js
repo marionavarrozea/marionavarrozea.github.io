@@ -3,24 +3,37 @@ const nav = document.getElementById('main-nav');
 const scrollBtn = document.getElementById("scrollTopBtn");
 
 window.addEventListener('scroll', function() {
+    // --- NEW: Shrinking Header Logic ---
+    // If user scrolls down more than 50px, shrink the nav
+    if (window.scrollY > 50) {
+        if (nav) nav.classList.add('scrolled');
+    } else {
+        if (nav) nav.classList.remove('scrolled');
+    }
+
     // Show/hide scroll to top button based on depth
     if (window.scrollY > 400) {
-        scrollBtn.style.display = "block";
+        if (scrollBtn) scrollBtn.style.display = "block";
     } else {
-        scrollBtn.style.display = "none";
+        if (scrollBtn) scrollBtn.style.display = "none";
     }
     
     // Telemetry Scroll Progress Bar Calculation
     let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     let scrolled = (winScroll / height) * 100;
-    document.getElementById("telemetryBar").style.width = scrolled + "%";
+    const telemetryBar = document.getElementById("telemetryBar");
+    if (telemetryBar) {
+        telemetryBar.style.width = scrolled + "%";
+    }
 });
 
 // Click to scroll to top
-scrollBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+if (scrollBtn) {
+    scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 
 // Intersection Observer for Scroll Reveals
 const observerOptions = {
@@ -35,32 +48,37 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
+// Apply observer to reveal sections
+document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
 // Close mobile menu when a link is clicked
 const menuToggle = document.getElementById('menu-toggle');
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
-        menuToggle.checked = false;
+        if (menuToggle) menuToggle.checked = false;
     });
 });
-
-// Apply observer to reveal sections
-document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
 
 // --- MODAL FUNCTIONS ---
 
 // Function to open the modal
 function openModal(modalId) {
-    document.getElementById(modalId).style.display = "block";
-    // Prevent the background website from scrolling
-    document.body.style.overflow = "hidden"; 
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = "block";
+        // Prevent the background website from scrolling
+        document.body.style.overflow = "hidden"; 
+    }
 }
 
 // Function to close the modal
 function closeModal(modalId) {
-    document.getElementById(modalId).style.display = "none";
-    // Restore the background scrolling
-    document.body.style.overflow = "auto"; 
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = "none";
+        // Restore the background scrolling
+        document.body.style.overflow = "auto"; 
+    }
 }
 
 // Close modal if user clicks the dark background outside the box
