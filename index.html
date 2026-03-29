@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="telemetryBar"></div>
+    </div>
+
     <nav id="main-nav">
         <div class="nav-container">
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
@@ -25,6 +29,7 @@
             
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#awards">Awards & Conferences</a></li>
@@ -58,6 +63,22 @@
                 
                 <p>Today, I apply these analytical and AIT methodologies to push the boundaries of space technology. Whether I am developing navigation algorithms for autonomous rovers or building cubesat shock test stands, I thrive in dynamic, cross-border environments where I can drive innovation in aerospace technology.</p>
             </div>            
+        </section>
+
+        <section id="skills" class="reveal">
+            <h2>Core Competencies & Tools</h2>
+            <div class="skills-grid">
+                <div class="skill-card">MATLAB & Simulink</div>
+                <div class="skill-card">Python (Machine Learning)</div>
+                <div class="skill-card">CATIA V5</div>
+                <div class="skill-card">Altium (PCB Design)</div>
+                <div class="skill-card">STK (Systems Tool Kit)</div>
+                <div class="skill-card">Systems Engineering</div>
+                <div class="skill-card">AIVT Methodologies</div>
+                <div class="skill-card">Orbital & Flight Dynamics</div>
+                <div class="skill-card">Space Propulsion</div>
+                <div class="skill-card">Computational Fluid Dynamics</div>
+            </div>
         </section>
     
         <section id="experience">
@@ -283,6 +304,12 @@
             } else {
                 scrollBtn.style.display = "none";
             }
+            
+            // THE UPGRADE: Telemetry Scroll Progress Bar Calculation
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("telemetryBar").style.width = scrolled + "%";
         });
 
         // Click to scroll to top
