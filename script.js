@@ -3,14 +3,7 @@ const nav = document.getElementById('main-nav');
 const scrollBtn = document.getElementById("scrollTopBtn");
 
 window.addEventListener('scroll', function() {
-    // Navbar shrink effect
-    if (window.scrollY > 0) {
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
-
-    // Show/hide scroll to top button
+    // Show/hide scroll to top button based on depth
     if (window.scrollY > 400) {
         scrollBtn.style.display = "block";
     } else {
@@ -42,7 +35,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Close menu when link is clicked
+// Close mobile menu when a link is clicked
 const menuToggle = document.getElementById('menu-toggle');
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
