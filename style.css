@@ -218,6 +218,7 @@ nav.scrolled .nav-links a {
     transition: border-color 0.3s;
 }
 
+/* When the card turns blue, the divider line fades slightly */
 .about-card:hover .skills-wrapper {
     border-top-color: rgba(255, 255, 255, 0.2);
 }
@@ -228,14 +229,6 @@ nav.scrolled .nav-links a {
     transition: color 0.3s;
 }
 
-.about-card:hover .skills-wrapper h3 {
-    color: var(--hover-text);
-}
-
-.skills-category {
-    margin-top: 20px;
-}
-
 .skills-category h4 {
     color: var(--text-heading);
     margin-bottom: 12px;
@@ -243,8 +236,12 @@ nav.scrolled .nav-links a {
     transition: color 0.3s;
 }
 
+/* When the card turns blue, headers turn bright blue/white */
 .about-card:hover .skills-category h4 {
     color: var(--accent-glow);
+}
+.about-card:hover .skills-wrapper h3 {
+    color: #ffffff;
 }
 
 .skills-list {
@@ -253,17 +250,18 @@ nav.scrolled .nav-links a {
     flex-wrap: wrap;
 }
 
+/* THE BUBBLES: Default State (White Card) */
 .skill-item {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: #f8f9fa;
+    background: #f1f5f9;         /* Light grey/blue background when card is white */
     padding: 6px 12px;
     border-radius: 6px;
-    border: 1px solid var(--nav-border);
+    border: 1px solid #e2e8f0;
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--text-main);
+    color: var(--text-main);      /* Dark text when card is white */
     transition: all 0.3s ease;
 }
 
@@ -273,16 +271,18 @@ nav.scrolled .nav-links a {
     object-fit: contain;
 }
 
-/* Skill Item & Tag Hover Adaptations */
+/* THE BUBBLES: Hover State (Blue Card) */
 .about-card:hover .skill-item {
-    background: #ffffff;          /* Makes the bubble solid white */
-    border-color: #ffffff;        /* Makes the border solid white */
-    color: var(--text-heading);   /* Changes text to dark blue so you can read it on the white background! */
+    background: #ffffff;          /* Turns solid white */
+    border-color: #ffffff;
+    color: var(--text-heading);   /* Text stays dark blue for readability */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
+/* THE TAGS: Matches the bubbles */
 .about-card:hover .tag {
-    background: var(--accent-glow);
-    color: #fff;
+    background: #ffffff;
+    color: var(--text-heading);
 }
 
 /* =========================================
