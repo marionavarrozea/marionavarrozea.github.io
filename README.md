@@ -24,6 +24,7 @@ at the Universidad de Sevilla and Politecnico di Milano to my current work at th
 * **Frontend:** HTML5, CSS3
 * **Scripting:** Vanilla JavaScript (ES6+)
 * **Analytics:** Google Tag Manager / GA4
+* **Deployment:** [Live on GitHub Pages](https://marionavarrozea.github.io)
 
 ## Contact
 
