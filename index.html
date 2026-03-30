@@ -392,30 +392,33 @@
     
             <div class="modal-body">
                 <h3>1. Project Context & Objectives</h3>
-                <p>This study is part of the ProVANT-EMERGENTIa project, which focuses on the design of a fixed-wing convertible RPAS with VTOL capabilities for search-and-rescue (SAR) missions. Most wind tunnel experiments in the literature focus solely on propeller characterization, often neglecting the crucial influence of the motor[cite: 14]. This research bridges that gap by providing an efficient testing methodology for the complete integrated motor-propeller system.</p>
+                <p>This study is part of the ProVANT-EMERGENTIa project, which focuses on the design of a fixed-wing convertible RPAS with VTOL capabilities for search-and-rescue (SAR) missions. Most wind tunnel experiments in the literature focus solely on propeller characterization, often neglecting the crucial influence of the motor. This research bridges that gap by providing an efficient testing methodology for the complete integrated motor-propeller system.</p>
     
                 <h3>2. Hardware & Experimental Setup</h3>
                 <ul style="margin-bottom: 20px;">
-                    <li><strong>Test Stand:</strong> Utilized the Tyto Robotics Series 1585 Test Stand, capable of precisely measuring thrust, torque, voltage, and current simultaneously.</li>
+                    <li><strong>Test Stand:</strong> Employed the Tyto Robotics Series 1585 Test Stand, capable of precisely measuring thrust, torque, voltage, and current simultaneously.</li>
                     <li><strong>Motors & Propellers:</strong> Characterized five BLDC motors from Model Motors (AXI 2826/10 and AXI 4130/16, V1 and V2) and Turnigy (Aerodrive SK3 5045). These were paired with APC Thin Electric propellers (13x4E, 13x10E, 14x10E) to analyze the influence of pitch and diameter variations.</li>
                     <li><strong>Power Supply:</strong> Integrated a SkyRC eFuel 1200W DC power supply, completely eliminating the dependence on charge cycles of traditional LiPo batteries and allowing for higher power tests.</li>
                 </ul>
     
-                <div class="image-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 30px;">
-                    <div class="image-placeholder" style="text-align: center;">
-                        <img src="TFG/figure_1.png" alt="Setup Diagram" style="max-width: 100%; border-radius: 8px;">
-                        <caption style="display: block; margin-top: 10px; font-size: 0.9rem; color: var(--text-muted);">Figure 1: Diagram of the interconnection among the setup elements.</caption>
+                <div class="image-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 30px; gap: 20px;">
+    
+                    <div class="image-placeholder" style="display: flex; flex-direction: column; text-align: center; height: 100%;">
+                        <img src="TFG/figure_1.png" alt="Setup Diagram" style="width: 100%; height: 250px; object-fit: contain; border-radius: 8px; margin-bottom: auto;">
+                        <caption style="display: block; margin-top: 15px; font-size: 0.9rem; color: var(--text-muted);">Figure 1: Diagram of the interconnection among the setup elements.</caption>
                     </div>
-                    <div class="image-placeholder" style="text-align: center;">
-                        <img src="TFG/figure_2.png" alt="Setup integrated in wind tunnel" style="max-width: 100%; border-radius: 8px;">
-                        <caption style="display: block; margin-top: 10px; font-size: 0.9rem; color: var(--text-muted);">Figure 2: Setup integrated in the ETSI open-circuit subsonic wind tunnel.</caption>
+                    
+                    <div class="image-placeholder" style="display: flex; flex-direction: column; text-align: center; height: 100%;">
+                        <img src="TFG/figure_2.png" alt="Setup integrated in wind tunnel" style="width: 100%; height: 250px; object-fit: contain; border-radius: 8px; margin-bottom: auto;">
+                        <caption style="display: block; margin-top: 15px; font-size: 0.9rem; color: var(--text-muted);">Figure 2: Setup integrated in the ETSI open-circuit subsonic wind tunnel.</caption>
                     </div>
+                    
                 </div>
     
                 <h3>3. Methodology & Data Pipeline</h3>
                 <p>To produce accurate and reliable results, a robust data processing method was developed using Python:</p>
                 <ul style="margin-bottom: 20px;">
-                    <li><strong>Data Cleaning:</strong> Utilized the <code>pandas</code> library for data loading and the <code>scikit-learn</code> EllipticEnvelope function to automatically detect and remove the 10% of data points furthest from the statistical center.</li>
+                    <li><strong>Data Cleaning:</strong> Used the <code>pandas</code> library for data loading and the <code>scikit-learn</code> EllipticEnvelope function to automatically detect and remove the 10% of data points furthest from the statistical center.</li>
                     <li><strong>Experimental Protocol:</strong> After comparing continuous and discrete sweeps, the discrete sweep method combined with constant speed experiments was selected to ensure the system reached mechanical equilibrium.</li>
                 </ul>
     
@@ -433,10 +436,10 @@
     
                 <h3>4. Results & Performance Analysis</h3>
                 <ul style="margin-bottom: 20px;">
-                    <li><strong>Hardware Upgrades:</strong> Verified a significant improvement in the efficiency of the AXI V2 motors (up to 2.72%) compared to the V1 versions, attributed to enhanced cooling and reduced internal resistance[cite: 163, 164].</li>
-                    <li><strong>Operational Regimes:</strong> Accurately mapped the thrust-generating, braking, and auto-rotation regimes. The auto-rotation range was clearly defined at the point where the current takes negative values[cite: 176].</li>
-                    <li><strong>Compressibility Effects:</strong> Applied dimensionless analysis, noting that the coefficients depend on the advance ratio, Reynolds number, and Mach number[cite: 85].</li>
-                    <li><strong>Efficiency Comparison:</strong> As illustrated in the final performance graph below, efficiency improves notably with low-pitched propellers, although this improvement tends to decrease when increasing tunnel speed[cite: 165].</li>
+                    <li><strong>Hardware Upgrades:</strong> Verified a significant improvement in the efficiency of the AXI V2 motors (up to 2.72%) compared to the V1 versions, attributed to enhanced cooling and reduced internal resistance.</li>
+                    <li><strong>Operational Regimes:</strong> Accurately mapped the thrust-generating, braking, and auto-rotation regimes. The auto-rotation range was clearly defined at the point where the current takes negative values.</li>
+                    <li><strong>Compressibility Effects:</strong> Applied dimensionless analysis, noting that the coefficients depend on the advance ratio, Reynolds number, and Mach number.</li>
+                    <li><strong>Efficiency Comparison:</strong> As illustrated in the final performance graph below, efficiency improves notably with low-pitched propellers, although this improvement tends to decrease when increasing tunnel speed.</li>
                 </ul>
     
                 <div class="image-grid" style="grid-template-columns: 1fr; margin-top: 20px;">
