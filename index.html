@@ -373,60 +373,63 @@
     
     <button id="scrollTopBtn" title="Go to top">↑</button>
 
-    <div id="thesisModal" class="modal">
+    <div id="erf-modal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('thesisModal')">&times;</span>
+            <span class="close-btn" onclick="closeModal('erf-modal')">&times;</span>
             
-            <h2>Electric Motors Efficiency Characterization</h2>
+            <h2>Characterization of Electric Propulsion Systems for VTOL RPAS</h2>
+            <p class="project-subtitle" style="font-style: italic; color: var(--text-muted); margin-bottom: 20px;">Research Framework: ProVANT-EMERGENTIa | ETSI Wind Tunnel, Seville</p>
+            
             <div class="tag-container">
+                <span class="tag">Python (Pandas, Scikit-Learn)</span>
                 <span class="tag">Wind Tunnel Testing</span>
-                <span class="tag">Python Data Analytics</span>
-                <span class="tag">Propulsion Systems</span>
+                <span class="tag">Data Analytics</span>
+                <span class="tag">BLDC Propulsion</span>
             </div>
     
             <div class="modal-body">
-                <h3>1. Introduction & Project Overview</h3>
-                <p>The propulsive system is essential in the design, operation, and control of small electric aircraft. This research was developed within the framework of the ProVANT-EMERGENTIa project, which focuses on the design of a fixed-wing convertible RPAS with VTOL capabilities intended for search-and-rescue (SAR) missions. The primary goal is to conduct a comprehensive characterization of electric propulsion systems to develop accurate, multi-variable propulsion models for integration into flight simulators.</p>
+                <h3>1. Project Context & Objectives</h3>
+                <p>Conducted as part of the ProVANT-EMERGENTIa project, which focuses on developing a fixed-wing convertible RPAS with VTOL capabilities for search-and-rescue (SAR) missions. This research bridges the gap between theoretical models and real-world data by focusing on the <strong>integrated motor-propeller combination</strong> rather than just isolated propeller performance.</p>
     
-                <h3>2. Experimental Setup</h3>
-                <p>To acquire precise and repeatable measurements, the setup integrated a Tyto Robotics Series 1585 Test Stand into the open-circuit ETSI wind tunnel, which has a 1.4 x 1.8 m testing chamber capable of speeds up to 30 m/s. The setup featured:</p>
-                <ul>
-                    <li><strong>Motors & Propellers:</strong> Various BLDC motors (like AXI and Turnigy series) and APC propellers of varying pitches and diameters.</li>
-                    <li><strong>Continuous Power Supply:</strong> An eFuel 1200W continuous power supply replaced traditional LiPo batteries, completely eliminating the dependence on charge cycles and allowing longer, higher-power experiments.</li>
+                <h3>2. Hardware & Experimental Setup</h3>
+                <ul style="margin-bottom: 20px;">
+                    <li><strong>Integrated Test Stand:</strong> Tyto Robotics Series 1585 (Thrust ±5 kgf, Torque ±2 Nm) mounted inside an open-circuit subsonic wind tunnel.</li>
+                    <li><strong>Components:</strong> Characterized 5 BLDC motors (AXI 2826/10, AXI 4130/16 V1 & V2, and Turnigy SK3 5045) paired with APC Thin Electric propellers.</li>
+                    <li><strong>Power Systems:</strong> Integrated a SkyRC eFuel 1200W DC power supply to completely eliminate the dependence on LiPo battery charge cycles during high-power testing.</li>
                 </ul>
     
-                <div class="image-grid">
-                    <div class="image-placeholder">
-                        <img src="assets/wind_tunnel_setup.jpg" alt="ETSI Wind Tunnel Setup">
-                        <caption>Fig 1. Setup integrated into the ETSI wind tunnel.</caption>
-                    </div>
-                    <div class="image-placeholder">
-                        <img src="assets/tyto_test_stand.jpg" alt="Tyto Robotics Test Stand">
-                        <caption>Fig 2. Detail of the BLDC motor mounted on the Test Stand.</caption>
+                <div class="image-grid" style="grid-template-columns: 1fr; margin-bottom: 30px;">
+                    <div class="image-placeholder" style="text-align: center;">
+                        <img src="logos/wind-tunnel-setup.jpg" alt="Wind Tunnel Experimental Setup with Tyto 1585" style="max-width: 100%; border-radius: 8px;">
+                        <caption style="display: block; margin-top: 10px; font-size: 0.9rem; color: var(--text-muted);">Figure 1: Experimental setup integration within the subsonic wind tunnel.</caption>
                     </div>
                 </div>
     
-                <h3>3. Theoretical Framework & Methodology</h3>
-                <p>The system's performance was evaluated by recording Voltage, Current, RPM, Thrust, Torque, and incident Airspeed. These parameters allowed the calculation of Motor Efficiency, Propulsive Efficiency, and Overall Efficiency, alongside dimensionless coefficients (CT, CQ, CP) over the advance ratio (J). Both static and dynamic wind tunnel tests were conducted to cover thrust-generating, braking, and auto-rotation regimes.</p>
-                
-                <h3>4. Data Processing</h3>
-                <p>A robust data processing pipeline was developed using Python. The pandas library was utilized for data loading. For outlier detection, the EllipticEnvelope function from scikit-learn was implemented, effectively removing the 10% of data points that deviated furthest from the statistical center. Finally, data was interpolated to generate continuous performance curves.</p>
+                <h3>3. Methodology & Data Pipeline</h3>
+                <p>Implemented a <strong>Python-based automation suite</strong> to standardize testing protocols across discrete sweeps and constant speed experiments:</p>
+                <ul style="margin-bottom: 20px;">
+                    <li><strong>Data Cleaning:</strong> Utilized the <code>pandas</code> library for data handling and <code>scikit-learn</code> (EllipticEnvelope) for automated outlier detection, systematically removing the 10% furthest statistical points.</li>
+                    <li><strong>Automation:</strong> Established a linear regression model to sync PWM signals with target RPM steps ($PWM = 0.0577 \cdot RPM + 997$).</li>
+                </ul>
     
-                <h3>5. Results & Conclusions</h3>
-                <p>The comprehensive testing generated valuable insights into how rotational speed and incident airspeed interact to influence overall system efficiency. The processed data successfully yielded the required multi-variable aerodynamic and electrical models, ready for direct integration into UAV flight simulators.</p>
-                
-                <div class="image-grid">
-                    <div class="image-placeholder" style="border: 2px dashed #ccc; display:flex; align-items:center; justify-content:center; height: 200px; border-radius: 8px;">
-                        <span style="color: #777; font-style: italic;">[Add Efficiency Graph here]</span>
-                    </div>
-                    <div class="image-placeholder" style="border: 2px dashed #ccc; display:flex; align-items:center; justify-content:center; height: 200px; border-radius: 8px;">
-                        <span style="color: #777; font-style: italic;">[Add Power Coefficient Graph here]</span>
+                <h3>4. Results & Performance Analysis</h3>
+                <ul style="margin-bottom: 20px;">
+                    <li><strong>Efficiency Gains:</strong> Verified up to a <strong>2.72% efficiency increase</strong> in AXI V2 motors over V1 counterparts due to improved cooling and reduced internal resistance.</li>
+                    <li><strong>Operational Mapping:</strong> Accurately mapped the thrust-generating, braking, and auto-rotation regimes. The auto-rotation regime was precisely identified where the current takes negative values.</li>
+                    <li><strong>Aero-Corrections:</strong> Accounted for compressibility effects that arise at blade tips operating at high Mach numbers (beyond 0.3).</li>
+                    <li><strong>Efficiency Comparison Graph:</strong> As illustrated in the performance mapping graph below, a comparative analysis between the different motor-propeller combinations reveals that while overall system efficiency improves notably with low-pitched propellers, this relative benefit steadily decreases as incident wind speed increases.</li>
+                </ul>
+    
+                <div class="image-grid" style="grid-template-columns: 1fr; margin-top: 20px;">
+                    <div class="image-placeholder" style="text-align: center;">
+                        <img src="logos/results-3d-plot.jpg" alt="Efficiency Comparison and 3D Performance Surface Plot" style="max-width: 100%; border-radius: 8px;">
+                        <caption style="display: block; margin-top: 10px; font-size: 0.9rem; color: var(--text-muted);">Figure 2: Efficiency comparison graph and dimensionless coefficient mapping between configurations.</caption>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
