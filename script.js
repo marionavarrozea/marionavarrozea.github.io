@@ -91,3 +91,57 @@ window.onclick = function(event) {
         }
     }
 }
+
+function showCourseProjects(courseId, buttonEl = null) {
+    document.querySelectorAll('#polimi-projects-modal .course-pane').forEach((pane) => {
+        pane.classList.remove('active');
+    });
+
+    document.querySelectorAll('#polimi-projects-modal .course-tab').forEach((btn) => {
+        btn.classList.remove('active');
+    });
+
+    const targetPane = document.getElementById(courseId);
+    if (targetPane) {
+        targetPane.classList.add('active');
+    }
+
+    if (buttonEl) {
+        buttonEl.classList.add('active');
+    }
+
+    document.querySelectorAll('#polimi-projects-modal .project-details').forEach((detail) => {
+        detail.classList.remove('active');
+    });
+}
+
+function toggleProjectDetails(detailsId) {
+    const details = document.getElementById(detailsId);
+    if (!details) return;
+
+    const isOpen = details.classList.contains('active');
+
+    document.querySelectorAll('#polimi-projects-modal .project-details').forEach((panel) => {
+        panel.classList.remove('active');
+    });
+
+    if (!isOpen) {
+        details.classList.add('active');
+    }
+}
+
+const originalOpenModal = openModal;
+openModal = function(modalId) {
+    originalOpenModal(modalId);
+
+    if (modalId === 'polimi-projects-modal') {
+        document.querySelectorAll('#polimi-projects-modal .course-tab').forEach((btn) => {
+            btn.classList.remove('active');
+        });
+
+        const firstTab = document.querySelector('#polimi-projects-modal .course-tab');
+        if (firstTab) firstTab.classList.add('active');
+
+        showCourseProjects('course-sgn', firstTab);
+    }
+};
