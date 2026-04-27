@@ -546,49 +546,443 @@
         </div>
     </div>
     <div id="polimi-projects-modal" class="modal">
-        <div class="modal-content" style="max-width: 800px;">
-            <span class="close-btn" role="button" tabindex="0" aria-label="Close modal" onclick="closeModal('polimi-projects-modal')">&times;</span>
-            
-            <h2 style="margin-bottom: 5px;">Politecnico di Milano Projects</h2>
-            <p class="project-subtitle" style="font-style: italic; color: var(--text-muted); margin-bottom: 25px;">Key academic projects and simulations developed during my MSc.</p>
-            
-            <div class="modal-body">
-                
-                <div style="display: flex; flex-wrap: wrap; gap: 20px; background: rgba(128, 128, 128, 0.05); border: 1px solid rgba(128, 128, 128, 0.2); border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-                    <div style="flex: 1 1 200px;">
-                        <img src="logos/project1_placeholder.jpg" alt="Project 1 Render" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; min-height: 180px;">
+    <div class="modal-content polimi-modal-content">
+        <span class="close-btn" role="button" tabindex="0" aria-label="Close modal" onclick="closeModal('polimi-projects-modal')">&times;</span>
+
+        <h2 style="margin-bottom: 5px;">Politecnico di Milano Projects</h2>
+        <p class="project-subtitle" style="font-style: italic; color: var(--text-muted); margin-bottom: 25px;">
+            Selected MSc projects grouped by course, with each assignment problem presented as an individual portfolio entry.
+        </p>
+
+        <div class="modal-body">
+            <div class="course-switcher">
+                <button class="course-tab active" onclick="showCourseProjects('course-sgn', this)">Space Guidance & Navigation</button>
+                <button class="course-tab" onclick="showCourseProjects('course-rs', this)">Remote Sensing</button>
+                <button class="course-tab" onclick="showCourseProjects('course-om', this)">Orbital Mechanics</button>
+                <button class="course-tab" onclick="showCourseProjects('course-adcs', this)">Attitude Dynamics</button>
+                <button class="course-tab" onclick="showCourseProjects('course-sp', this)">Space Propulsion</button>
+                <button class="course-tab" onclick="showCourseProjects('course-ctp', this)">Thermochemical Propulsion</button>
+            </div>
+
+            <!-- SPACE GUIDANCE AND NAVIGATION -->
+            <div id="course-sgn" class="course-pane active">
+                <p class="polimi-course-note">
+                    Numerical astrodynamics, trajectory design, orbit estimation, and filtering projects developed in the Space Guidance and Navigation track.
+                </p>
+
+                <div class="project-card">
+                    <h3>Periodic Halo Orbits in the Earth-Moon CRTBP</h3>
+                    <div class="tag-container">
+                        <span class="tag">MATLAB</span>
+                        <span class="tag">CRTBP</span>
+                        <span class="tag">Differential Corrections</span>
+                        <span class="tag">STM</span>
                     </div>
-                    <div style="flex: 2 1 300px; display: flex; flex-direction: column; justify-content: center;">
-                        <h3 style="margin-top: 0; margin-bottom: 10px; font-size: 1.25rem;">Spacecraft Attitude Dynamics Simulation</h3>
-                        
-                        <div class="tag-container" style="margin-bottom: 15px;">
-                            <span class="tag">MATLAB</span>
-                            <span class="tag">Simulink</span>
-                        </div>
-                        
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;">Developed a high-fidelity simulator for a rigid spacecraft, modeling gravity gradient and aerodynamic drag disturbances. Designed a control system utilizing reaction wheels to maintain precise pointing requirements.</p>
+                    <p>
+                        Computed the five Lagrange points, implemented a differential corrections scheme using the State Transition Matrix, and continued a family of periodic halo orbits in the Earth-Moon Circular Restricted Three-Body Problem.
+                    </p>
+                    <button class="btn outline" onclick="toggleProjectDetails('sgn-halo')">View Details</button>
+                    <div id="sgn-halo" class="project-details">
+                        <h4>Focus</h4>
+                        <p>
+                            Started from a provided initial guess, enforced perpendicular crossings of the \( y = 0 \) plane, imposed a target Jacobi constant, and obtained corrected initial states for halo orbits.
+                        </p>
+                        <h4>Highlights</h4>
+                        <ul>
+                            <li>Located L1 to L5 and reported their coordinates and Jacobi constants.</li>
+                            <li>Built the correction scheme around symmetry conditions and energy constraints.</li>
+                            <li>Used numerical continuation to track the family down to lower-energy solutions.</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div style="display: flex; flex-wrap: wrap; gap: 20px; background: rgba(128, 128, 128, 0.05); border: 1px solid rgba(128, 128, 128, 0.2); border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-                    <div style="flex: 1 1 200px;">
-                        <img src="logos/project2_placeholder.jpg" alt="Project 2 Render" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; min-height: 180px;">
+                <div class="project-card">
+                    <h3>Impulsive Earth-Moon Transfer Optimization in the PBRFBP</h3>
+                    <div class="tag-container">
+                        <span class="tag">Trajectory Design</span>
+                        <span class="tag">Shooting Methods</span>
+                        <span class="tag">Earth-Moon</span>
+                        <span class="tag">Optimization</span>
                     </div>
-                    <div style="flex: 2 1 300px; display: flex; flex-direction: column; justify-content: center;">
-                        <h3 style="margin-top: 0; margin-bottom: 10px; font-size: 1.25rem;">Propulsion System PCB Design</h3>
-                        
-                        <div class="tag-container" style="margin-bottom: 15px;">
-                            <span class="tag">Altium Designer</span>
-                            <span class="tag">Electronics</span>
-                        </div>
-                        
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;">Designed a multi-layer Printed Circuit Board for a miniaturized propulsion valve control system. Focused on thermal dissipation and signal integrity for reliable operation in vacuum conditions.</p>
+                    <p>
+                        Developed first-guess and shooting-based solutions for a two-impulse Earth-Moon transfer problem in the planar bicircular restricted four-body framework.
+                    </p>
+                    <button class="btn outline" onclick="toggleProjectDetails('sgn-impulsive')">View Details</button>
+                    <div id="sgn-impulsive" class="project-details">
+                        <h4>Focus</h4>
+                        <p>
+                            Generated an initial transfer estimate from assigned parameters, then refined the solution with simple and multiple shooting formulations.
+                        </p>
+                        <h4>Highlights</h4>
+                        <ul>
+                            <li>Compared derivative-free and derivative-informed optimization setups.</li>
+                            <li>Included the state transition matrix through variational equations.</li>
+                            <li>Produced transfer representations in rotating and Earth-centered inertial frames.</li>
+                        </ul>
                     </div>
                 </div>
 
+                <div class="project-card">
+                    <h3>Low-Thrust Orbit Raising and Mission Design</h3>
+                    <div class="tag-container">
+                        <span class="tag">Low-Thrust</span>
+                        <span class="tag">Optimal Control</span>
+                        <span class="tag">Mission Analysis</span>
+                    </div>
+                    <p>
+                        Structured a separate portfolio entry for the third assignment problem, focused on low-thrust transfer design and trajectory optimization methods.
+                    </p>
+                    <button class="btn outline" onclick="toggleProjectDetails('sgn-lowthrust')">View Details</button>
+                    <div id="sgn-lowthrust" class="project-details">
+                        <h4>Focus</h4>
+                        <p>
+                            Framed the project as a dedicated trajectory-design study rather than folding it into the earlier impulsive-transfer work, keeping each assignment problem visible as its own technical contribution.
+                        </p>
+                        <h4>Portfolio angle</h4>
+                        <ul>
+                            <li>Emphasizes optimization-driven mission design.</li>
+                            <li>Balances well against the impulsive-transfer and halo-orbit entries.</li>
+                            <li>Useful to showcase breadth across guidance and astrodynamics methods.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Uncertainty Propagation in Earth-Moon Transfers</h3>
+                    <div class="tag-container">
+                        <span class="tag">Covariance Analysis</span>
+                        <span class="tag">Uncertainty Propagation</span>
+                        <span class="tag">Navigation</span>
+                    </div>
+                    <p>
+                        Analysed how initial-state uncertainty evolves along an Earth-Moon transfer, treating uncertainty propagation as a standalone navigation project.
+                    </p>
+                    <button class="btn outline" onclick="toggleProjectDetails('sgn-uncertainty')">View Details</button>
+                    <div id="sgn-uncertainty" class="project-details">
+                        <h4>Focus</h4>
+                        <p>
+                            Positioned the work as an estimation-and-robustness study around transfer trajectories, highlighting sensitivity to initial conditions and model propagation.
+                        </p>
+                        <h4>Highlights</h4>
+                        <ul>
+                            <li>Showcases stochastic analysis rather than pure deterministic design.</li>
+                            <li>Pairs well with filtering projects later in the same course.</li>
+                            <li>Good evidence of navigation-oriented systems thinking.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Batch Filtering for SMOS Orbit Determination</h3>
+                    <div class="tag-container">
+                        <span class="tag">Orbit Determination</span>
+                        <span class="tag">Batch Estimation</span>
+                        <span class="tag">Satellite Navigation</span>
+                    </div>
+                    <p>
+                        Built a batch-estimation workflow for orbit determination using SMOS mission data, treating measurement processing and estimation as a dedicated project.
+                    </p>
+                    <button class="btn outline" onclick="toggleProjectDetails('sgn-batch')">View Details</button>
+                    <div id="sgn-batch" class="project-details">
+                        <h4>Focus</h4>
+                        <p>
+                            Presented the assignment as a classical orbit-determination problem centered on parameter estimation from measurement sets over a processing arc.
+                        </p>
+                        <h4>Highlights</h4>
+                        <ul>
+                            <li>Clear portfolio evidence of estimation theory applied to real satellite data.</li>
+                            <li>Complements the more dynamical projects from the same course.</li>
+                            <li>Useful for GNC, FDS, and navigation-oriented roles.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Sequential Filtering for Lunar Orbiter-Lander Navigation</h3>
+                    <div class="tag-container">
+                        <span class="tag">Kalman Filtering</span>
+                        <span class="tag">Lunar Navigation</span>
+                        <span class="tag">Sequential Estimation</span>
+                    </div>
+                    <p>
+                        Developed a sequential-estimation project for a lunar orbiter and lander navigation scenario, highlighting recursive filtering and state updates.
+                    </p>
+                    <button class="btn outline" onclick="toggleProjectDetails('sgn-sequential')">View Details</button>
+                    <div id="sgn-sequential" class="project-details">
+                        <h4>Focus</h4>
+                        <p>
+                            Framed as a dynamic navigation problem where recursive state estimation is central to operational performance in a Moon mission context.
+                        </p>
+                        <h4>Highlights</h4>
+                        <ul>
+                            <li>Demonstrates filtering beyond batch processing.</li>
+                            <li>Adds a lunar-mission application to the portfolio.</li>
+                            <li>Shows continuity from uncertainty propagation into navigation architecture.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REMOTE SENSING -->
+            <div id="course-rs" class="course-pane">
+                <p class="polimi-course-note">
+                    Radar, interferometry, SAR processing, and inverse-problem coursework split into individual portfolio projects.
+                </p>
+
+                <div class="project-card">
+                    <h3>Radar-Based Double Localization and SLAM</h3>
+                    <div class="tag-container">
+                        <span class="tag">SLAM</span>
+                        <span class="tag">Radar Geometry</span>
+                        <span class="tag">Localization</span>
+                    </div>
+                    <p>
+                        Framed a dedicated inverse-problem project around double localization and SLAM using radar distance measurements.
+                    </p>
+                    <button class="btn outline" onclick="toggleProjectDetails('rs-slam')">View Details</button>
+                    <div id="rs-slam" class="project-details">
+                        <h4>Focus</h4>
+                        <p>
+                            Highlighted the geometry, observability, and reconstruction aspects of localization from radar-based measurements.
+                        </p>
+                        <h4>Highlights</h4>
+                        <ul>
+                            <li>Strong signal-processing and estimation flavor.</li>
+                            <li>Good project to show mathematical modelling skills.</li>
+                            <li>Works well for roles involving radar analytics and tracking.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Advanced Radiometry and RFI Mitigation</h3>
+                    <div class="tag-container">
+                        <span class="tag">Radiometry</span>
+                        <span class="tag">RFI Mitigation</span>
+                        <span class="tag">Signal Processing</span>
+                    </div>
+                    <p>
+                        Isolated the radiometry component of the assignment into a standalone project focused on interference mitigation and delay-related signal analysis.
+                    </p>
+                    <button class="btn outline" onclick="toggleProjectDetails('rs-rfi')">View Details</button>
+                    <div id="rs-rfi" class="project-details">
+                        <h4>Focus</h4>
+                        <p>
+                            Presented the work as a signal-quality and retrieval problem, emphasizing robustness against interference and measurement corruption.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>L-Band Differential Interferometry Mission Design</h3>
+                    <div class="tag-container">
+                        <span class="tag">D-InSAR</span>
+                        <span class="tag">Mission Design</span>
+                        <span class="tag">L-Band</span>
+                    </div>
+                    <p>
+                        Developed a dedicated project around L-band differential interferometry mission design, linking radar-system choices to deformation sensitivity.
+                    </p>
+                    <button class="btn outline" onclick="toggleProjectDetails('rs-dinsar')">View Details</button>
+                    <div id="rs-dinsar" class="project-details">
+                        <h4>Focus</h4>
+                        <p>
+                            Positioned the project at the intersection of SAR system engineering and geophysical measurement performance.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Along-Track Deformation Estimation</h3>
+                    <div class="tag-container">
+                        <span class="tag">Interferometry</span>
+                        <span class="tag">Deformation</span>
+                        <span class="tag">Remote Sensing</span>
+                    </div>
+                    <p>
+                        Split out the deformation-estimation problem into its own project entry focused on along-track geometry and displacement retrieval.
+                    </p>
+                    <button class="btn outline" onclick="toggleProjectDetails('rs-alongtrack')">View Details</button>
+                    <div id="rs-alongtrack" class="project-details">
+                        <h4>Focus</h4>
+                        <p>
+                            Useful portfolio item for emphasizing quantitative Earth-observation analysis beyond image formation alone.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>SAR Focusing with Time-Domain Backprojection</h3>
+                    <div class="tag-container">
+                        <span class="tag">SAR</span>
+                        <span class="tag">Backprojection</span>
+                        <span class="tag">UAV Data</span>
+                    </div>
+                    <p>
+                        Presented the SAR focusing assignment as a full signal-processing project centered on time-domain backprojection for UAV-acquired data.
+                    </p>
+                    <button class="btn outline" onclick="toggleProjectDetails('rs-backprojection')">View Details</button>
+                    <div id="rs-backprojection" class="project-details">
+                        <h4>Focus</h4>
+                        <p>
+                            Showcases algorithmic image formation, radar-processing intuition, and practical handling of non-spaceborne SAR data.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ORBITAL MECHANICS -->
+            <div id="course-om" class="course-pane">
+                <p class="polimi-course-note">
+                    The Orbital Mechanics report contained two distinct assignments, so it is split here into two separate projects.
+                </p>
+
+                <div class="project-card">
+                    <h3>Interplanetary Transfer from Jupiter to Asteroid 137052 via Mars Flyby</h3>
+                    <div class="tag-container">
+                        <span class="tag">Interplanetary Trajectories</span>
+                        <span class="tag">Patched Conics</span>
+                        <span class="tag">Gravity Assist</span>
+                    </div>
+                    <p>
+                        Designed a minimum-\( \Delta V \) transfer from Jupiter to asteroid 137052 with a powered Mars flyby using patched-conics methods, pork-chop analysis, and grid-search refinement.
+                    </p>
+                    <button class="btn outline" onclick="toggleProjectDetails('om-transfer')">View Details</button>
+                    <div id="om-transfer" class="project-details">
+                        <h4>Focus</h4>
+                        <p>
+                            Combined preliminary window design, Lambert solutions, flyby feasibility checks, and local optimization to identify a viable mission architecture.
+                        </p>
+                        <h4>Highlights</h4>
+                        <ul>
+                            <li>Used pork-chop plots and nested searches to constrain candidate windows.</li>
+                            <li>Modelled the Mars flyby in a dedicated planet-centric frame.</li>
+                            <li>Showed strong end-to-end mission-analysis workflow.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Planetary Explorer Orbit Analysis Around Mars</h3>
+                    <div class="tag-container">
+                        <span class="tag">Mars Orbit</span>
+                        <span class="tag">J2 & SRP</span>
+                        <span class="tag">Ground Tracks</span>
+                    </div>
+                    <p>
+                        Analysed a Mars orbiter mission by studying ground tracks, perturbation-driven orbital evolution, filtered Keplerian elements, and real-data comparisons for uncontrolled objects.
+                    </p>
+                    <button class="btn outline" onclick="toggleProjectDetails('om-mars')">View Details</button>
+                    <div id="om-mars" class="project-details">
+                        <h4>Focus</h4>
+                        <p>
+                            Compared Cartesian and Gauss-based propagation methods while interpreting the long-term effects of J2 and Solar Radiation Pressure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ATTITUDE DYNAMICS -->
+            <div id="course-adcs" class="course-pane">
+                <p class="polimi-course-note">
+                    This course report is best represented as one integrated ADCS project rather than fragmented sub-tasks.
+                </p>
+
+                <div class="project-card">
+                    <h3>ADCS Design for a GEO Communications Satellite</h3>
+                    <div class="tag-container">
+                        <span class="tag">ADCS</span>
+                        <span class="tag">Quaternions</span>
+                        <span class="tag">Kalman Observer</span>
+                        <span class="tag">Reaction Wheels</span>
+                    </div>
+                    <p>
+                        Developed an integrated Attitude Determination and Control System for a GEO satellite, including disturbance modelling, sensor selection, actuator sizing, attitude determination, de-tumbling, slew, and nadir-pointing control.
+                    </p>
+                    <button class="btn outline" onclick="toggleProjectDetails('adcs-geo')">View Details</button>
+                    <div id="adcs-geo" class="project-details">
+                        <h4>Focus</h4>
+                        <p>
+                            Built the project around a GOES-R-class reference satellite with Earth-pointing requirements and quaternion-based control logic.
+                        </p>
+                        <h4>Highlights</h4>
+                        <ul>
+                            <li>Included gravity-gradient, SRP, magnetic-torque, and eclipse modelling.</li>
+                            <li>Used Wahba’s problem and a Kalman observer for attitude determination.</li>
+                            <li>Demonstrated de-tumbling, slew manoeuvre, and controlled pointing performance.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SPACE PROPULSION -->
+            <div id="course-sp" class="course-pane">
+                <p class="polimi-course-note">
+                    This section intentionally includes only the solid-propulsion part of the Space Propulsion group project.
+                </p>
+
+                <div class="project-card">
+                    <h3>MEMS Solid Propellant Thruster Array for CubeSat AOCS</h3>
+                    <div class="tag-container">
+                        <span class="tag">Solid Propulsion</span>
+                        <span class="tag">MEMS</span>
+                        <span class="tag">CubeSat</span>
+                        <span class="tag">Monte Carlo</span>
+                    </div>
+                    <p>
+                        Designed a MEMS Solid Propellant Thruster architecture for a 3U CubeSat AOCS, focusing on propellant selection, nozzle sizing, array layout, expected performance, and uncertainty analysis.
+                    </p>
+                    <button class="btn outline" onclick="toggleProjectDetails('sp-mspt')">View Details</button>
+                    <div id="sp-mspt" class="project-details">
+                        <h4>Focus</h4>
+                        <p>
+                            Kept only the MSPT portion of the team report, excluding the vaporizing-liquid micro-resistojet and cold-gas sections.
+                        </p>
+                        <h4>Highlights</h4>
+                        <ul>
+                            <li>Used AP/Al/HTPB-based solid-propellant modelling with Vieille-law parameters.</li>
+                            <li>Sized a 900-thruster array distributed over four independently fired plates.</li>
+                            <li>Compared nominal and Monte Carlo performance, including thrust and impulse variability.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMBUSTION IN THERMOCHEMICAL PROPULSION -->
+            <div id="course-ctp" class="course-pane">
+                <p class="polimi-course-note">
+                    Separate solid-propellant combustion project focused on Al-Mg powder substitution and greener formulations.
+                </p>
+
+                <div class="project-card">
+                    <h3>Solid Propellants Loaded with Al-Mg / AP-AN</h3>
+                    <div class="tag-container">
+                        <span class="tag">Solid Propellants</span>
+                        <span class="tag">Combustion</span>
+                        <span class="tag">TG-DTA</span>
+                        <span class="tag">Burning Rate</span>
+                    </div>
+                    <p>
+                        Investigated how replacing pure aluminum with Al-Mg alloys affects pre-burning reactivity and post-burning performance in AP- and AP/AN-based solid propellant formulations.
+                    </p>
+                    <button class="btn outline" onclick="toggleProjectDetails('ctp-almg')">View Details</button>
+                    <div id="ctp-almg" class="project-details">
+                        <h4>Focus</h4>
+                        <p>
+                            Combined powder morphology, TG-DTA reactivity analysis, and Vieille-law curve fitting to evaluate greener solid-propellant alternatives.
+                        </p>
+                        <h4>Highlights</h4>
+                        <ul>
+                            <li>Compared Al, Mg, and Al-Mg powder reactivity indicators.</li>
+                            <li>Assessed AP versus AP/AN formulations in terms of burning-rate performance.</li>
+                            <li>Identified RE AlMg50 APAN as the most balanced compromise between performance and environmental impact.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>
