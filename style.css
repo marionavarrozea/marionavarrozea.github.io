@@ -699,6 +699,12 @@ h3 { color: var(--text-heading); margin-top: 0; margin-bottom: 5px; }
     margin: 25px 0;
 }
 
+/* center figures and reuse across thesis + SGN */
+.image-placeholder {
+    text-align: center;
+    margin: 0;
+}
+
 .image-placeholder img {
     width: 100%;
     height: auto;
@@ -706,7 +712,8 @@ h3 { color: var(--text-heading); margin-top: 0; margin-bottom: 5px; }
     box-shadow: 0 4px 10px var(--card-shadow);
 }
 
-.image-placeholder caption {
+/* unified caption style */
+.image-placeholder figcaption {
     display: block;
     text-align: center;
     font-size: 0.85rem;
@@ -714,7 +721,6 @@ h3 { color: var(--text-heading); margin-top: 0; margin-bottom: 5px; }
     margin-top: 8px;
     font-style: italic;
 }
-
 /* --- PDF Viewer (If needed) --- */
 .pdf-viewer {
     margin-top: 20px;
