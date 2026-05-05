@@ -601,23 +601,34 @@
                     <div class="project-layout">
                         <div class="project-text">
                             <p>
-                                Built an initial two-impulse Earth–Moon transfer in the planar bicircular restricted four-body
-                                problem and propagated it in the Earth–Moon rotating frame and Earth-centered inertial frame.
+                                Designed a two-impulse Earth–Moon transfer in the planar bicircular restricted four-body
+                                problem (PBRFBP), starting from analytical parameters to generate a physically consistent
+                                first-guess trajectory and propagating it in both the Earth–Moon rotating frame and the
+                                Earth-centered inertial frame.
                             </p>
                             <p>
-                                Solved the optimal transfer with simple and multiple shooting, comparing derivative-free and
-                                gradient-based formulations using the State Transition Matrix to reduce total Δv and improve
-                                convergence.
+                                Formulated the transfer as a nonlinear constrained optimization problem, minimizing total
+                                Δv under dynamical and orbital boundary conditions. Implemented simple shooting without
+                                gradients, then enhanced the formulation by supplying analytical sensitivities via the
+                                State Transition Matrix, reducing iterations and improving convergence robustness.
+                            </p>
+                            <p>
+                                Extended the approach to a multiple shooting scheme, enforcing continuity across several
+                                mesh points to better handle the strong nonlinearities of the PBRFBP and to explore
+                                lower-Δv solutions. Compared the resulting trajectories and cost with the single-shooting
+                                solutions, highlighting the benefits of mesh segmentation and gradient information.
                             </p>
                         </div>
-                        <div class="image-placeholder">
-                               <img src="img/SGN3.png" alt="Optimized trajectories (Rotating frame)">
-                               <caption>Optimized trajectories (Rotating frame).</caption>
-                           </div>
-                           <div class="image-placeholder">
-                               <img src="img/SGN4.png" alt="Optimized trajectories (ECI)">
-                               <caption>Optimized trajectories (ECI).</caption>
-                           </div>
+                
+                        <div class="image-grid">
+                            <div class="image-placeholder">
+                                <img src="img/SGN3.png" alt="Optimized trajectories (Rotating frame)">
+                                <caption>Optimized transfer trajectories in the Earth–Moon rotating frame.</caption>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="img/SGN4.png" alt="Optimized trajectories (ECI)">
+                                <caption>Same optimized solutions mapped to the Earth-centered inertial frame.</caption>
+                            </div>
                         </div>
                     </div>
                 </section>
