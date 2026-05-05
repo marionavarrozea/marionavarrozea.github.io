@@ -569,158 +569,159 @@
                 <p class="polimi-course-note">
                     Numerical astrodynamics, trajectory design, orbit estimation, and filtering projects developed in the Space Guidance and Navigation track.
                 </p>
-
-                <div class="project-card">
-                    <h3>Periodic Halo Orbits in the Earth-Moon CRTBP</h3>
-                    <div class="tag-container">
-                        <span class="tag">MATLAB</span>
-                        <span class="tag">CRTBP</span>
-                        <span class="tag">Differential Corrections</span>
-                        <span class="tag">STM</span>
-                    </div>
-                    <p>
-                        Computed the five Lagrange points, implemented a differential corrections scheme using the State Transition Matrix, and continued a family of periodic halo orbits in the Earth-Moon Circular Restricted Three-Body Problem.
+            
+                <!-- SGN PROJECT 1 -->
+                <section class="project-entry">
+                    <h3>Periodic Halo Orbits in the Earth–Moon CRTBP</h3>
+                    <p class="project-meta">
+                        Course: Space Guidance and Navigation (SGN) · Type: Numerical assignment · Tools: MATLAB
                     </p>
-                    <button class="btn outline" onclick="toggleProjectDetails('sgn-halo')">View Details</button>
-                    <div id="sgn-halo" class="project-details">
-                        <h4>Focus</h4>
-                        <p>
-                            Started from a provided initial guess, enforced perpendicular crossings of the \( y = 0 \) plane, imposed a target Jacobi constant, and obtained corrected initial states for halo orbits.
-                        </p>
-                        <h4>Highlights</h4>
-                        <ul>
-                            <li>Located L1 to L5 and reported their coordinates and Jacobi constants.</li>
-                            <li>Built the correction scheme around symmetry conditions and energy constraints.</li>
-                            <li>Used numerical continuation to track the family down to lower-energy solutions.</li>
-                        </ul>
+                    <div class="project-layout">
+                        <div class="project-text">
+                            <p>
+                                Implemented the 3D Earth–Moon Circular Restricted Three-Body Problem and computed
+                                the coordinates and Jacobi constants of the five Lagrange points with high-precision root finding.
+                            </p>
+                            <p>
+                                Designed a differential correction scheme based on the State Transition Matrix to converge to
+                                periodic halo orbits with a prescribed Jacobi constant, and generated a family of solutions
+                                through numerical continuation.
+                            </p>
+                        </div>
+                        <figure class="project-figure">
+                            <img src="img/sgn_halo_orbit.png" alt="Halo orbit in the Earth–Moon CRTBP">
+                            <figcaption>Computed halo orbit around the Earth–Moon system in the rotating frame.</figcaption>
+                        </figure>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Impulsive Earth-Moon Transfer Optimization in the PBRFBP</h3>
-                    <div class="tag-container">
-                        <span class="tag">Trajectory Design</span>
-                        <span class="tag">Shooting Methods</span>
-                        <span class="tag">Earth-Moon</span>
-                        <span class="tag">Optimization</span>
-                    </div>
-                    <p>
-                        Developed first-guess and shooting-based solutions for a two-impulse Earth-Moon transfer problem in the planar bicircular restricted four-body framework.
+                </section>
+            
+                <!-- SGN PROJECT 2 -->
+                <section class="project-entry">
+                    <h3>Impulsive Earth–Moon Transfer Optimization in the PBRFBP</h3>
+                    <p class="project-meta">
+                        Course: Space Guidance and Navigation (SGN) · Type: Optimal control assignment · Tools: MATLAB
                     </p>
-                    <button class="btn outline" onclick="toggleProjectDetails('sgn-impulsive')">View Details</button>
-                    <div id="sgn-impulsive" class="project-details">
-                        <h4>Focus</h4>
-                        <p>
-                            Generated an initial transfer estimate from assigned parameters, then refined the solution with simple and multiple shooting formulations.
-                        </p>
-                        <h4>Highlights</h4>
-                        <ul>
-                            <li>Compared derivative-free and derivative-informed optimization setups.</li>
-                            <li>Included the state transition matrix through variational equations.</li>
-                            <li>Produced transfer representations in rotating and Earth-centered inertial frames.</li>
-                        </ul>
+                    <div class="project-layout">
+                        <div class="project-text">
+                            <p>
+                                Built an initial two-impulse Earth–Moon transfer in the planar bicircular restricted four-body
+                                problem and propagated it in the Earth–Moon rotating frame and Earth-centered inertial frame.
+                            </p>
+                            <p>
+                                Solved the optimal transfer with simple and multiple shooting, comparing derivative-free and
+                                gradient-based formulations using the State Transition Matrix to reduce total Δv and improve
+                                convergence.
+                            </p>
+                        </div>
+                        <figure class="project-figure">
+                            <img src="img/sgn_impulsive_transfer.png" alt="Optimized Earth–Moon transfer trajectory">
+                            <figcaption>Optimized Earth–Moon transfer in rotating and inertial frames.</figcaption>
+                        </figure>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Low-Thrust Orbit Raising and Mission Design</h3>
-                    <div class="tag-container">
-                        <span class="tag">Low-Thrust</span>
-                        <span class="tag">Optimal Control</span>
-                        <span class="tag">Mission Analysis</span>
-                    </div>
-                    <p>
-                        Structured a separate portfolio entry for the third assignment problem, focused on low-thrust transfer design and trajectory optimization methods.
+                </section>
+            
+                <!-- SGN PROJECT 3 -->
+                <section class="project-entry">
+                    <h3>Low-Thrust Debris-Aware Orbit Raising</h3>
+                    <p class="project-meta">
+                        Course: Space Guidance and Navigation (SGN) · Type: Optimal control assignment · Tools: MATLAB
                     </p>
-                    <button class="btn outline" onclick="toggleProjectDetails('sgn-lowthrust')">View Details</button>
-                    <div id="sgn-lowthrust" class="project-details">
-                        <h4>Focus</h4>
-                        <p>
-                            Framed the project as a dedicated trajectory-design study rather than folding it into the earlier impulsive-transfer work, keeping each assignment problem visible as its own technical contribution.
-                        </p>
-                        <h4>Portfolio angle</h4>
-                        <ul>
-                            <li>Emphasizes optimization-driven mission design.</li>
-                            <li>Balances well against the impulsive-transfer and halo-orbit entries.</li>
-                            <li>Useful to showcase breadth across guidance and astrodynamics methods.</li>
-                        </ul>
+                    <div class="project-layout">
+                        <div class="project-text">
+                            <p>
+                                Formulated a low-thrust orbit-raising maneuver from 800 km to 1000 km that minimizes collision
+                                risk by embedding a debris spatial density model into the performance index.
+                            </p>
+                            <p>
+                                Applied Pontryagin’s Maximum Principle to derive state and costate dynamics, implemented
+                                the optimal thrust law, and used numerical continuation on maximum thrust to study how
+                                final time and propellant usage change.
+                            </p>
+                        </div>
+                        <figure class="project-figure">
+                            <img src="img/sgn_low_thrust.png" alt="Optimal low-thrust orbit raising">
+                            <figcaption>Optimal low-thrust raising trajectory and debris density profile.</figcaption>
+                        </figure>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Uncertainty Propagation in Earth-Moon Transfers</h3>
-                    <div class="tag-container">
-                        <span class="tag">Covariance Analysis</span>
-                        <span class="tag">Uncertainty Propagation</span>
-                        <span class="tag">Navigation</span>
-                    </div>
-                    <p>
-                        Analysed how initial-state uncertainty evolves along an Earth-Moon transfer, treating uncertainty propagation as a standalone navigation project.
+                </section>
+            
+                <!-- SGN PROJECT 4 -->
+                <section class="project-entry">
+                    <h3>Uncertainty Propagation Along an Earth–Moon Transfer</h3>
+                    <p class="project-meta">
+                        Course: Space Guidance and Navigation (SGN) · Type: Estimation & uncertainty assignment · Tools: MATLAB
                     </p>
-                    <button class="btn outline" onclick="toggleProjectDetails('sgn-uncertainty')">View Details</button>
-                    <div id="sgn-uncertainty" class="project-details">
-                        <h4>Focus</h4>
-                        <p>
-                            Positioned the work as an estimation-and-robustness study around transfer trajectories, highlighting sensitivity to initial conditions and model propagation.
-                        </p>
-                        <h4>Highlights</h4>
-                        <ul>
-                            <li>Showcases stochastic analysis rather than pure deterministic design.</li>
-                            <li>Pairs well with filtering projects later in the same course.</li>
-                            <li>Good evidence of navigation-oriented systems thinking.</li>
-                        </ul>
+                    <div class="project-layout">
+                        <div class="project-text">
+                            <p>
+                                Propagated state uncertainty along an optimal Earth–Moon transfer in the planar bicircular
+                                restricted four-body problem using linear covariance propagation, the Unscented Transform,
+                                and Monte Carlo sampling.
+                            </p>
+                            <p>
+                                Compared final 3σ position and velocity ellipses, time evolution of covariance, and QQ-plots
+                                to assess the validity of linear and Gaussian assumptions and the trade-off between
+                                accuracy and computational cost.
+                            </p>
+                        </div>
+                        <figure class="project-figure">
+                            <img src="img/sgn_uncertainty.png" alt="Uncertainty propagation along transfer trajectory">
+                            <figcaption>Uncertainty envelopes at lunar arrival for different propagation methods.</figcaption>
+                        </figure>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Batch Filtering for SMOS Orbit Determination</h3>
-                    <div class="tag-container">
-                        <span class="tag">Orbit Determination</span>
-                        <span class="tag">Batch Estimation</span>
-                        <span class="tag">Satellite Navigation</span>
-                    </div>
-                    <p>
-                        Built a batch-estimation workflow for orbit determination using SMOS mission data, treating measurement processing and estimation as a dedicated project.
+                </section>
+            
+                <!-- SGN PROJECT 5 -->
+                <section class="project-entry">
+                    <h3>SMOS Orbit Determination with Batch Filters</h3>
+                    <p class="project-meta">
+                        Course: Space Guidance and Navigation (SGN) · Type: Orbit determination assignment · Tools: MATLAB, SGP4
                     </p>
-                    <button class="btn outline" onclick="toggleProjectDetails('sgn-batch')">View Details</button>
-                    <div id="sgn-batch" class="project-details">
-                        <h4>Focus</h4>
-                        <p>
-                            Presented the assignment as a classical orbit-determination problem centered on parameter estimation from measurement sets over a processing arc.
-                        </p>
-                        <h4>Highlights</h4>
-                        <ul>
-                            <li>Clear portfolio evidence of estimation theory applied to real satellite data.</li>
-                            <li>Complements the more dynamical projects from the same course.</li>
-                            <li>Useful for GNC, FDS, and navigation-oriented roles.</li>
-                        </ul>
+                    <div class="project-layout">
+                        <div class="project-text">
+                            <p>
+                                Predicted visibility windows of the SMOS satellite from three ground stations, simulated
+                                azimuth, elevation, and range measurements with realistic noise, and solved a batch
+                                least-squares navigation problem.
+                            </p>
+                            <p>
+                                Evaluated single-station versus multi-station configurations and the impact of including J2
+                                dynamics on the estimated covariance for position, velocity, semimajor axis, and inclination,
+                                including a cost–accuracy trade-off on pass selection.
+                            </p>
+                        </div>
+                        <figure class="project-figure">
+                            <img src="img/sgn_smos_batch.png" alt="Ground-track and visibility for SMOS tracking">
+                            <figcaption>SMOS passes and visibility from KOUROU, TROLL, and SVALBARD.</figcaption>
+                        </figure>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Sequential Filtering for Lunar Orbiter-Lander Navigation</h3>
-                    <div class="tag-container">
-                        <span class="tag">Kalman Filtering</span>
-                        <span class="tag">Lunar Navigation</span>
-                        <span class="tag">Sequential Estimation</span>
-                    </div>
-                    <p>
-                        Developed a sequential-estimation project for a lunar orbiter and lander navigation scenario, highlighting recursive filtering and state updates.
+                </section>
+            
+                <!-- SGN PROJECT 6 -->
+                <section class="project-entry">
+                    <h3>Lunar Lander Localization with Unscented Kalman Filters</h3>
+                    <p class="project-meta">
+                        Course: Space Guidance and Navigation (SGN) · Type: Sequential filtering assignment · Tools: MATLAB
                     </p>
-                    <button class="btn outline" onclick="toggleProjectDetails('sgn-sequential')">View Details</button>
-                    <div id="sgn-sequential" class="project-details">
-                        <h4>Focus</h4>
-                        <p>
-                            Framed as a dynamic navigation problem where recursive state estimation is central to operational performance in a Moon mission context.
-                        </p>
-                        <h4>Highlights</h4>
-                        <ul>
-                            <li>Demonstrates filtering beyond batch processing.</li>
-                            <li>Adds a lunar-mission application to the portfolio.</li>
-                            <li>Shows continuity from uncertainty propagation into navigation architecture.</li>
-                        </ul>
+                    <div class="project-layout">
+                        <div class="project-text">
+                            <p>
+                                Simulated a lunar orbiter and surface lander geometry, generated noisy orbiter position
+                                measurements and inter-satellite ranges, and implemented Unscented Kalman Filters to
+                                estimate the orbiter state.
+                            </p>
+                            <p>
+                                Extended the state to include lander latitude and longitude and showed convergence of
+                                both orbiter state and lander coordinates by analyzing error evolution and 3σ bounds
+                                over the observation arc.
+                            </p>
+                        </div>
+                        <figure class="project-figure">
+                            <img src="img/sgn_lunar_ukf.png" alt="Lunar orbiter and lander geometry with UKF estimation">
+                            <figcaption>UKF-based estimation of orbiter trajectory and lander coordinates.</figcaption>
+                        </figure>
                     </div>
-                </div>
+                </section>
             </div>
 
             <!-- REMOTE SENSING -->
