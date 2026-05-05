@@ -608,25 +608,25 @@
                             </p>
                             <p>
                                 Formulated the transfer as a nonlinear constrained optimization problem, minimizing total
-                                Δv under dynamical and orbital boundary conditions. Implemented simple shooting without
+                                \( \Delta v \) under dynamical and orbital boundary conditions. Implemented simple shooting without
                                 gradients, then enhanced the formulation by supplying analytical sensitivities via the
                                 State Transition Matrix, reducing iterations and improving convergence robustness.
                             </p>
                             <p>
                                 Extended the approach to a multiple shooting scheme, enforcing continuity across several
                                 mesh points to better handle the strong nonlinearities of the PBRFBP and to explore
-                                lower-Δv solutions. Compared the resulting trajectories and cost with the single-shooting
+                                lower-\( \Delta v \) solutions. Compared the resulting trajectories and cost with the single-shooting
                                 solutions, highlighting the benefits of mesh segmentation and gradient information.
                             </p>
                         </div>
                 
                         <div class="image-grid">
                             <div class="image-placeholder">
-                                <img src="projects/ex2_opt_rot.png" alt="Optimized trajectories (Rotating frame)">
+                                <img src="projects/ex2_opt_rot.jpg" alt="Optimized trajectories (Rotating frame)">
                                 <caption>Optimized transfer trajectories in the Earth–Moon rotating frame.</caption>
                             </div>
                             <div class="image-placeholder">
-                                <img src="projects/ex2_opt_eci.png" alt="Optimized trajectories (ECI)">
+                                <img src="projects/ex2_opt_eci.jpg" alt="Optimized trajectories (ECI)">
                                 <caption>Same optimized solutions mapped to the Earth-centered inertial frame.</caption>
                             </div>
                         </div>
