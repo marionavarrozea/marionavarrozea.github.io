@@ -639,20 +639,33 @@
                     <div class="project-layout">
                         <div class="project-text">
                             <p>
-                                Formulated a low-thrust orbit-raising maneuver from 800 km to 1000 km that minimizes collision
-                                risk by embedding a debris spatial density model into the performance index.
+                                Investigated a low-thrust orbit-raising maneuver from 800 km to 1000 km in a debris-populated
+                                low-Earth orbit, starting with an analysis of the debris density as a function of altitude.
+                                The resulting profile, with a clear peak around the crowded 700–800 km band and a rapid
+                                decrease above it, was used to motivate how the transfer should be shaped.
                             </p>
                             <p>
-                                Applied Pontryagin’s Maximum Principle to derive state and costate dynamics, implemented
-                                the optimal thrust law, and used numerical continuation on maximum thrust to study how
-                                final time and propellant usage change.
+                                Formulated the maneuver as an optimal control problem for a continuous-thrust spacecraft,
+                                where the objective is not just to reach the final orbit but to minimize the accumulated
+                                collision risk along the path. By exploiting the structure given by Pontryagin’s Maximum
+                                Principle, the thrust direction and timing are chosen to raise the orbit while reducing
+                                time spent in the most congested altitudes.
                             </p>
+                            <p>
+                                The final trajectory shows how thrust arcs are phased along the orbit to gradually
+                                lift both apogee and perigee and achieve the small inclination change, while steering
+                                the spacecraft away from the highest-density debris region as much as possible.
+                            </p>
+                        <div class="image-grid">
+                            <div class="image-placeholder">
+                                <img src="projects/debris_density_plot.jpg" alt="Debris density plot">
+                                <figcaption>Debris spatial density.</figcaption>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="projects/SGN3.png" alt="Optimized trajectory">
+                                <figcaption>Optimal orbit raising trajectory.</figcaption>
+                            </div>
                         </div>
-                        <figure class="project-figure">
-                            <img src="img/sgn_low_thrust.png" alt="Optimal low-thrust orbit raising">
-                            <figcaption>Optimal low-thrust raising trajectory and debris density profile.</figcaption>
-                        </figure>
-                    </div>
                 </section>
             
                 <!-- SGN PROJECT 4 -->
