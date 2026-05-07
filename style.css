@@ -854,3 +854,55 @@ h3 { color: var(--text-heading); margin-top: 0; margin-bottom: 5px; }
         padding: 20px;
     }
 }
+/* =========================================
+   Metrics Table (Polimi Projects)
+   ========================================= */
+
+.metrics-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    overflow: hidden; /* rounds the outer border */
+    box-shadow: 0 4px 12px var(--card-shadow);
+}
+
+.metrics-table thead {
+    background: #f1f5f9;
+}
+
+.metrics-table th,
+.metrics-table td {
+    padding: 8px 12px;
+    text-align: center;
+    border-bottom: 1px solid var(--nav-border);
+}
+
+.metrics-table th {
+    font-weight: 700;
+    color: var(--text-heading);
+    white-space: nowrap;
+}
+
+.metrics-table tbody tr:nth-child(even) {
+    background: rgba(241, 245, 249, 0.6); /* light striping */
+}
+
+.metrics-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* align first column text a bit to the left */
+.metrics-table td:first-child,
+.metrics-table th:first-child {
+    text-align: left;
+}
+
+/* Small screens: allow horizontal scroll if needed */
+.metrics-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
