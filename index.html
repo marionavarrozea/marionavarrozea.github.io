@@ -656,6 +656,7 @@
                                 lift both apogee and perigee and achieve the small inclination change, while steering
                                 the spacecraft away from the highest-density debris region as much as possible.
                             </p>
+                        </div>
                         <div class="image-grid">
                             <div class="image-placeholder">
                                 <img src="projects/debris_density_plot.jpg" alt="Debris density plot">
@@ -674,21 +675,30 @@
                     <div class="project-layout">
                         <div class="project-text">
                             <p>
-                                Propagated state uncertainty along an optimal Earth–Moon transfer in the planar bicircular
-                                restricted four-body problem using linear covariance propagation, the Unscented Transform,
-                                and Monte Carlo sampling.
+                                Analyzed how state uncertainty evolves along an optimal Earth–Moon transfer in the Planar Bicircular Restricted Four-Body
+                                Problem (PBRFBP), starting from a covariance defined at departure.
+                                The mean state and covariance were first propagated using a linearized covariance approach
+                                based on the state transition matrix, and then with the Unscented Transform to better
+                                capture the nonlinear mapping of the initial uncertainty.
                             </p>
                             <p>
-                                Compared final 3σ position and velocity ellipses, time evolution of covariance, and QQ-plots
-                                to assess the validity of linear and Gaussian assumptions and the trade-off between
-                                accuracy and computational cost.
+                                Performed a Monte Carlo (MC) simulation with 1000 samples drawn from the initial covariance
+                                to obtain a reference estimate of the final mean and covariance. The position ellipses
+                                at lunar arrival, the time evolution of the 3 \( \sigma \) envelopes for position and velocity, and
+                                QQ-plots for each state component were used to compare methods and assess how well the
+                                linear and Gaussian assumptions hold in the strongly nonlinear arrival phase.
                             </p>
+                         </div>
+                         <div class="image-grid">
+                            <div class="image-placeholder">
+                                <img src="projects/SGN4.png" alt="Mean and covariance ellipses for the three methods">
+                                <figcaption>Mean and covariance ellipses for the three methods.</figcaption>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="projects/SGN5.png" alt="QQ-plots">
+                                <figcaption>QQ-plots from MC analysis.</figcaption>
+                            </div>
                         </div>
-                        <figure class="project-figure">
-                            <img src="img/sgn_uncertainty.png" alt="Uncertainty propagation along transfer trajectory">
-                            <figcaption>Uncertainty envelopes at lunar arrival for different propagation methods.</figcaption>
-                        </figure>
-                    </div>
                 </section>
             
                 <!-- SGN PROJECT 5 -->
@@ -697,23 +707,62 @@
                     <div class="project-layout">
                         <div class="project-text">
                             <p>
-                                Predicted visibility windows of the SMOS satellite from three ground stations, simulated
-                                azimuth, elevation, and range measurements with realistic noise, and solved a batch
-                                least-squares navigation problem.
+                                Designed and evaluated a batch orbit determination setup for ESA’s SMOS satellite using
+                                a small network of ground stations. Starting from TLE data and Keplerian propagation, the
+                                visibility windows from KOUROU, TROLL, and SVALBARD were computed, and synthetic azimuth,
+                                elevation, and range measurements were generated with realistic noise, using both SGP4
+                                and simpler dynamical models.
                             </p>
                             <p>
-                                Evaluated single-station versus multi-station configurations and the impact of including J2
-                                dynamics on the estimated covariance for position, velocity, semimajor axis, and inclination,
-                                including a cost–accuracy trade-off on pass selection.
+                                Solved a weighted least-squares navigation problem in different scenarios: (a) using only
+                                KOUROU measurements with a Keplerian model, (b) using all three stations, and finally
+                                (c) including a J2-perturbed dynamics model. The resulting estimated states and covariances
+                                were mapped into uncertainties in semimajor axis and inclination, allowing a trade-off
+                                between tracking cost, station selection, and navigation accuracy over the visibility
+                                interval.
                             </p>
                         </div>
-                        <figure class="project-figure">
-                            <img src="img/sgn_smos_batch.png" alt="Ground-track and visibility for SMOS tracking">
-                            <figcaption>SMOS passes and visibility from KOUROU, TROLL, and SVALBARD.</figcaption>
-                        </figure>
-                    </div>
+                        <table class="metrics-table">
+                          <thead>
+                            <tr>
+                              <th>Scenario</th>
+                              <th>Position uncertainty [km]</th>
+                              <th>Velocity uncertainty [km/s]</th>
+                              <th>σ(a) semimajor axis [km]</th>
+                              <th>σ(i) inclination [deg]</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Scenario a</td>
+                              <td>4.70956810</td>
+                              <td>0.00349140</td>
+                              <td>4.48922100</td>
+                              <td>0.03712490</td>
+                            </tr>
+                            <tr>
+                              <td>Scenario b</td>
+                              <td>0.60836320</td>
+                              <td>0.00064700</td>
+                              <td>0.05139090</td>
+                              <td>0.00113760</td>
+                            </tr>
+                            <tr>
+                              <td>Scenario c</td>
+                              <td>0.01056420</td>
+                              <td>0.00001080</td>
+                              <td>0.00305420</td>
+                              <td>0.00002700</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="image-grid">
+                            <div class="image-placeholder">
+                                <img src="projects/ex2_window_K2.jpg" alt="Example KOUROU">
+                                <figcaption>Example of visibility window from KOUROU.</figcaption>
+                            </div>
+                        </div>
                 </section>
-            
                 <!-- SGN PROJECT 6 -->
                 <section class="project-card">
                     <h3>Lunar Lander Localization with Unscented Kalman Filters</h3>
