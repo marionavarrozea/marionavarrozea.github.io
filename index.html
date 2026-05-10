@@ -817,9 +817,7 @@
                             <p>
                                 The results were validated against the true sensor and target geometry,
                                 showing how measurement noise and problem observability affect the
-                                accuracy of the recovered positions. This analysis highlights the role
-                                of geometry and redundancy in ensuring a well-conditioned SLAM solution
-                                when only range information is available.
+                                accuracy of the recovered positions. 
                             </p>
                         </div>
                 
@@ -830,7 +828,7 @@
                             </div>
                             <div class="image-placeholder">
                                 <img src="projects/RS2.png" alt="Estimated target positions from noisy distances.">
-                                <figcaption>Estimated sensor positions from noisy distances.</figcaption>
+                                <figcaption>Estimated target positions from noisy distances.</figcaption>
                             </div>
                         </div>
                     </div>
@@ -843,8 +841,8 @@
                         <div class="project-text">
                             <p>
                                 Developed several methods to estimate sea surface brightness temperature
-                                from SMOS-like radiometer measurements affected by narrowband radio-
-                                frequency interference. Brightness temperatures were retrieved from total
+                                from SMOS-like radiometer measurements affected by narrowband Radio-
+                                Frequency Interference (RFI). Brightness temperatures were retrieved from total
                                 power, power spectrum, and autocorrelation, providing multiple ways to
                                 relate the measured signal statistics to the underlying physical emission.
                             </p>
@@ -856,16 +854,24 @@
                                 showing that the RFI component is much less precisely estimated due to
                                 its narrower effective bandwidth.
                             </p>
+                            <p>
+                                Finally, exploited the cross-correlation between signals received by two
+                                satellites to estimate the relative delay of the RFI component and link it
+                                to the geometry of the interference source. The separation between the
+                                satellites and the measured delay provide constraints on the direction
+                                of arrival of the RFI, illustrating how radiometric processing can also
+                                support interference localization.
+                            </p>
                         </div>
                 
                         <div class="image-grid">
                             <div class="image-placeholder">
-                                <img src="projects/RS4_radiometry_TB.png" alt="Sea brightness temperature estimates">
-                                <figcaption>Sea brightness temperature estimates obtained with different processing methods.</figcaption>
+                                <img src="projects/RS3.png" alt="Power spectral density">
+                                <figcaption>Power Spectral Density.</figcaption>
                             </div>
                             <div class="image-placeholder">
-                                <img src="projects/RS4_rfi_TB.png" alt="RFI brightness temperature and uncertainty">
-                                <figcaption>Sea and RFI brightness temperature estimates and uncertainties for both mitigation approaches.</figcaption>
+                                <img src="projects/RS4.png" alt="Comparison between |Ry(τ)| and |Rxy(τ)|">
+                                <figcaption>Comparison between \(|R_y(\tau)|\) and \(|R_{xy}(\tau)|\)</figcaption>
                             </div>
                         </div>
                     </div>
