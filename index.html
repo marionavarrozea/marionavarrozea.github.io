@@ -801,111 +801,111 @@
 
             <!-- REMOTE SENSING -->
             <div id="course-rs" class="course-pane">
-                <p class="polimi-course-note">
-                    Radar, interferometry, SAR processing, and inverse-problem coursework split into individual portfolio projects.
-                </p>
+                <!-- RS PROJECT 1 -->
+                <section class="project-card">
+                    <h3>Double Localization SLAM from Airborne Radar Ranges</h3>
+                    <div class="project-layout">
+                        <div class="project-text">
+                            <p>
+                                Implemented a double localization SLAM framework in which both airborne
+                                radar sensor and ground target positions are estimated from noisy range
+                                measurements. The distance model between each sensor position and target
+                                was linearized around nominal coordinates, leading to a large Jacobian
+                                system that was solved in least-squares to recover position corrections
+                                and the underlying distance noise variance.
+                            </p>
+                            <p>
+                                The results were validated against the true sensor and target geometry,
+                                showing how measurement noise and problem observability affect the
+                                accuracy of the recovered positions. This analysis highlights the role
+                                of geometry and redundancy in ensuring a well-conditioned SLAM solution
+                                when only range information is available.
+                            </p>
+                        </div>
+                
+                        <div class="image-grid">
+                            <div class="image-placeholder">
+                                <img src="projects/RS1.png" alt="Estimated sensor positions from noisy distances.">
+                                <figcaption>Estimated sensor positions from noisy distances.</figcaption>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="projects/RS2.png" alt="Estimated target positions from noisy distances.">
+                                <figcaption>Estimated sensor positions from noisy distances.</figcaption>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-                <div class="project-card">
-                    <h3>Radar-Based Double Localization and SLAM</h3>
-                    <div class="tag-container">
-                        <span class="tag">SLAM</span>
-                        <span class="tag">Radar Geometry</span>
-                        <span class="tag">Localization</span>
+                <!-- RS PROJECT 2 -->
+                <section class="project-card">
+                    <h3>Spaceborne Radiometry and RFI Mitigation</h3>
+                    <div class="project-layout">
+                        <div class="project-text">
+                            <p>
+                                Developed several methods to estimate sea surface brightness temperature
+                                from SMOS-like radiometer measurements affected by narrowband radio-
+                                frequency interference. Brightness temperatures were retrieved from total
+                                power, power spectrum, and autocorrelation, providing multiple ways to
+                                relate the measured signal statistics to the underlying physical emission.
+                            </p>
+                            <p>
+                                Compared two RFI mitigation strategies, band exclusion and median
+                                substitution, and used a linear estimation framework to jointly retrieve
+                                sea and RFI brightness temperatures and their uncertainties. The analysis
+                                quantified the impact of RFI rejection on bias and standard deviation,
+                                showing that the RFI component is much less precisely estimated due to
+                                its narrower effective bandwidth.
+                            </p>
+                        </div>
+                
+                        <div class="image-grid">
+                            <div class="image-placeholder">
+                                <img src="projects/RS4_radiometry_TB.png" alt="Sea brightness temperature estimates">
+                                <figcaption>Sea brightness temperature estimates obtained with different processing methods.</figcaption>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="projects/RS4_rfi_TB.png" alt="RFI brightness temperature and uncertainty">
+                                <figcaption>Sea and RFI brightness temperature estimates and uncertainties for both mitigation approaches.</figcaption>
+                            </div>
+                        </div>
                     </div>
-                    <p>
-                        Framed a dedicated inverse-problem project around double localization and SLAM using radar distance measurements.
-                    </p>
-                    <button class="btn outline" onclick="toggleProjectDetails('rs-slam')">View Details</button>
-                    <div id="rs-slam" class="project-details">
-                        <h4>Focus</h4>
-                        <p>
-                            Highlighted the geometry, observability, and reconstruction aspects of localization from radar-based measurements.
-                        </p>
-                        <h4>Highlights</h4>
-                        <ul>
-                            <li>Strong signal-processing and estimation flavor.</li>
-                            <li>Good project to show mathematical modelling skills.</li>
-                            <li>Works well for roles involving radar analytics and tracking.</li>
-                        </ul>
-                    </div>
-                </div>
+                </section>
 
-                <div class="project-card">
-                    <h3>Advanced Radiometry and RFI Mitigation</h3>
-                    <div class="tag-container">
-                        <span class="tag">Radiometry</span>
-                        <span class="tag">RFI Mitigation</span>
-                        <span class="tag">Signal Processing</span>
+                <!-- RS PROJECT 3 -->
+                <section class="project-card">
+                    <h3>L-band Differential Interferometric SAR Design</h3>
+                    <div class="project-layout">
+                        <div class="project-text">
+                            <p>
+                                Designed an L-band spaceborne interferometric SAR system to measure ground
+                                deformation with 2 mm line-of-sight accuracy at 12-day revisit over 1 ha
+                                resolution cells. The trade-off between coherence, required number of looks,
+                                and effective resolution area was quantified using the Cramér–Rao bound,
+                                and a suitable operating point was selected around 100 looks within the
+                                design cell.
+                            </p>
+                            <p>
+                                The total coherence was modeled as the product of temporal, volumetric,
+                                SNR-related, and topographic contributions over short vegetation, leading
+                                to a target NESZ and radiometric margin for the deformation requirement.
+                                A realistic L-band SAR design was then proposed (orbit, swath, resolution,
+                                antenna size, bandwidth, PRF, and chirp duration) and compared against
+                                PALSAR‑2 and ROSE‑L reference missions.
+                            </p>
+                        </div>
+                
+                        <div class="image-grid">
+                            <div class="image-placeholder">
+                                <img src="projects/RS1_looks_coherence.png" alt="Number of looks and resolution vs coherence">
+                                <figcaption>Number of looks and effective resolution area versus coherence for different accuracy targets.</figcaption>
+                            </div>
+                            <div class="image-placeholder">
+                                <img src="projects/RS1_sar_design_table.png" alt="SAR design parameters vs reference missions">
+                                <figcaption>Main SAR design parameters and comparison with PALSAR‑2 and ROSE‑L.</figcaption>
+                            </div>
+                        </div>
                     </div>
-                    <p>
-                        Isolated the radiometry component of the assignment into a standalone project focused on interference mitigation and delay-related signal analysis.
-                    </p>
-                    <button class="btn outline" onclick="toggleProjectDetails('rs-rfi')">View Details</button>
-                    <div id="rs-rfi" class="project-details">
-                        <h4>Focus</h4>
-                        <p>
-                            Presented the work as a signal-quality and retrieval problem, emphasizing robustness against interference and measurement corruption.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>L-Band Differential Interferometry Mission Design</h3>
-                    <div class="tag-container">
-                        <span class="tag">D-InSAR</span>
-                        <span class="tag">Mission Design</span>
-                        <span class="tag">L-Band</span>
-                    </div>
-                    <p>
-                        Developed a dedicated project around L-band differential interferometry mission design, linking radar-system choices to deformation sensitivity.
-                    </p>
-                    <button class="btn outline" onclick="toggleProjectDetails('rs-dinsar')">View Details</button>
-                    <div id="rs-dinsar" class="project-details">
-                        <h4>Focus</h4>
-                        <p>
-                            Positioned the project at the intersection of SAR system engineering and geophysical measurement performance.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Along-Track Deformation Estimation</h3>
-                    <div class="tag-container">
-                        <span class="tag">Interferometry</span>
-                        <span class="tag">Deformation</span>
-                        <span class="tag">Remote Sensing</span>
-                    </div>
-                    <p>
-                        Split out the deformation-estimation problem into its own project entry focused on along-track geometry and displacement retrieval.
-                    </p>
-                    <button class="btn outline" onclick="toggleProjectDetails('rs-alongtrack')">View Details</button>
-                    <div id="rs-alongtrack" class="project-details">
-                        <h4>Focus</h4>
-                        <p>
-                            Useful portfolio item for emphasizing quantitative Earth-observation analysis beyond image formation alone.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>SAR Focusing with Time-Domain Backprojection</h3>
-                    <div class="tag-container">
-                        <span class="tag">SAR</span>
-                        <span class="tag">Backprojection</span>
-                        <span class="tag">UAV Data</span>
-                    </div>
-                    <p>
-                        Presented the SAR focusing assignment as a full signal-processing project centered on time-domain backprojection for UAV-acquired data.
-                    </p>
-                    <button class="btn outline" onclick="toggleProjectDetails('rs-backprojection')">View Details</button>
-                    <div id="rs-backprojection" class="project-details">
-                        <h4>Focus</h4>
-                        <p>
-                            Showcases algorithmic image formation, radar-processing intuition, and practical handling of non-spaceborne SAR data.
-                        </p>
-                    </div>
-                </div>
-            </div>
+                </section>
 
             <!-- ORBITAL MECHANICS -->
             <div id="course-om" class="course-pane">
