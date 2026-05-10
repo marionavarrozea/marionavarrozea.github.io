@@ -720,47 +720,91 @@
                                 interval.
                             </p>
                         </div>
+                       
                         <div class="metrics-table-wrapper">
                           <table class="metrics-table">
                             <thead>
                               <tr>
-                                <th>Scenario</th>
-                                <th>Position uncertainty [km]</th>
-                                <th>Velocity uncertainty [km/s]</th>
-                                <th>\( \sigma_a \) [km]</th>
-                                <th>\( \sigma_i \) [deg]</th>
+                                <th>Parameter</th>
+                                <th>Symbol</th>
+                                <th>Design</th>
+                                <th>PALSAR‑2 (stripmap)</th>
+                                <th>ROSE‑L</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
-                                <td>Scenario (a)</td>
-                                <td>4.70956810</td>
-                                <td>0.00349140</td>
-                                <td>4.48922100</td>
-                                <td>0.03712490</td>
+                                <td>Orbital height</td>
+                                <td>H [km]</td>
+                                <td>666</td>
+                                <td>628</td>
+                                <td>693</td>
                               </tr>
                               <tr>
-                                <td>Scenario (b)</td>
-                                <td>0.60836320</td>
-                                <td>0.00064700</td>
-                                <td>0.05139090</td>
-                                <td>0.00113760</td>
+                                <td>Incidence angle</td>
+                                <td>\( \theta \) [deg]</td>
+                                <td>40</td>
+                                <td>8–70</td>
+                                <td>31–45</td>
                               </tr>
                               <tr>
-                                <td>Scenario (c)</td>
-                                <td>0.01056420</td>
-                                <td>0.00001080</td>
-                                <td>0.00305420</td>
-                                <td>0.00002700</td>
+                                <td>Ground swath</td>
+                                <td>\( GS \) [km]</td>
+                                <td>79</td>
+                                <td>50–70</td>
+                                <td>≥ 260</td>
+                              </tr>
+                              <tr>
+                                <td>Azimuth resolution</td>
+                                <td>\( \Delta x \) [m]</td>
+                                <td>5.25</td>
+                                <td>3–10</td>
+                                <td>5–10</td>
+                              </tr>
+                              <tr>
+                                <td>Ground-range resolution</td>
+                                <td>\( \Delta y \) [m]</td>
+                                <td>15</td>
+                                <td>3–10</td>
+                                <td>5–10</td>
+                              </tr>
+                              <tr>
+                                <td>Antenna length (azimuth)</td>
+                                <td>\( L_x \) [m]</td>
+                                <td>10.5</td>
+                                <td>9.9</td>
+                                <td>11</td>
+                              </tr>
+                              <tr>
+                                <td>Antenna height (elevation)</td>
+                                <td>\( L_z \) [m]</td>
+                                <td>3.4</td>
+                                <td>2.9</td>
+                                <td>3.6</td>
+                              </tr>
+                              <tr>
+                                <td>Bandwidth</td>
+                                <td>B [MHz]</td>
+                                <td>13</td>
+                                <td>14–84</td>
+                                <td>up to 80</td>
+                              </tr>
+                              <tr>
+                                <td>Pulse Repetition Frequency</td>
+                                <td>PRF [Hz]</td>
+                                <td>2200</td>
+                                <td>1500–3000</td>
+                                <td>–</td>
+                              </tr>
+                              <tr>
+                                <td>Chirp duration</td>
+                                <td>\( T_g \) [µs]</td>
+                                <td>68</td>
+                                <td>–</td>
+                                <td>–</td>
                               </tr>
                             </tbody>
                           </table>
-                        </div>
-                        <div class="image-grid" style="justify-content: center; grid-template-columns: auto;">
-                            <div class="image-placeholder" style="max-width: 650px;">
-                                <img src="projects/ex2_window_K2.jpg" alt="Example KOUROU">
-                                <figcaption>Example of visibility window from KOUROU.</figcaption>
-                            </div>
                         </div>
                 </section>
                 
@@ -871,7 +915,7 @@
                             </div>
                             <div class="image-placeholder">
                                 <img src="projects/RS4.png" alt="Comparison between |Ry(τ)| and |Rxy(τ)|">
-                                <figcaption>Comparison between \(|R_y(\tau)|\) and \(|R_{xy}(\tau)|\)</figcaption>
+                                <figcaption>Comparison between \(|R_y(\tau)|\) and \(|R_{xy}(\tau)|\).</figcaption>
                             </div>
                         </div>
                     </div>
@@ -886,7 +930,7 @@
                                 Designed an L-band spaceborne interferometric SAR system to measure ground
                                 deformation with 2 mm line-of-sight accuracy at 12-day revisit over 1 ha
                                 resolution cells. The trade-off between coherence, required number of looks,
-                                and effective resolution area was quantified using the Cramér–Rao bound,
+                                and effective resolution area was quantified using the Cramer–Rao bound,
                                 and a suitable operating point was selected around 100 looks within the
                                 design cell.
                             </p>
